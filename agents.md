@@ -61,7 +61,7 @@ Structure:
   - A comment block explaining the concept
   - Clear TODO markers for where to write code
   - Example usage/expected behavior
-- Export statement at the end (initially commented with instructions to uncomment)
+  - Export statement immediately after TODO section (commented as example)
 
 **Important conventions:**
 - Use `// TODO: Write your code here` markers
@@ -69,6 +69,13 @@ Structure:
 - Include explanatory comments about TypeScript concepts
 - Add examples in comments
 - Keep exercises progressively more challenging
+- **Export pattern:** Each exercise should have a commented export example immediately after the TODO, like:
+  ```typescript
+  // TODO: Write your code here
+  // After completing this exercise, export your function like this:
+  // export { functionName };
+  ```
+- This provides immediate feedback as learners complete each exercise, rather than having all exports at the bottom
 
 ### 4. Create kata.test.ts
 Structure:

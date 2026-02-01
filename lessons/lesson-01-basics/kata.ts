@@ -19,7 +19,11 @@
 // - A boolean variable called 'isActive' with the value true
 
 // TODO: Write your code here
+const firstName: string = "Alice"
+const age: number = 30
+const isActive: boolean = true
 
+export { firstName, age, isActive };
 
 // =============================================================================
 // Exercise 2: Type Inference
@@ -34,7 +38,11 @@
 // - A variable 'isComplete' with the value false
 
 // TODO: Write your code here
+const lastName = "Smith"
+const score = 95.5
+const isComplete = false
 
+export { lastName, score, isComplete };
 
 // =============================================================================
 // Exercise 3: Array Types
@@ -48,6 +56,8 @@
 // - A string array called 'colors' containing ["red", "green", "blue"]
 
 // TODO: Write your code here
+// After completing this exercise, export your arrays like this:
+// export { numbers, colors };
 
 
 // =============================================================================
@@ -62,6 +72,8 @@
 // - Has an explicit return type annotation of 'number'
 
 // TODO: Write your code here
+// After completing this exercise, export your function like this:
+// export { addNumbers };
 
 
 // =============================================================================
@@ -75,6 +87,8 @@
 // Example: greet("Alice") should return "Hello, Alice!"
 
 // TODO: Write your code here
+// After completing this exercise, export your function like this:
+// export { greet };
 
 
 // =============================================================================
@@ -89,6 +103,8 @@
 // Example: findMax([1, 5, 3, 9, 2]) should return 9
 
 // TODO: Write your code here
+// After completing this exercise, export your function like this:
+// export { findMax };
 
 
 // =============================================================================
@@ -107,6 +123,8 @@
 // - greetWithDefault() should return "Hello, Guest!"
 
 // TODO: Write your code here
+// After completing this exercise, export your function like this:
+// export { greetWithDefault };
 
 
 // =============================================================================
@@ -124,6 +142,8 @@
 // Example: createPerson("Alice", 30) should return { name: "Alice", age: 30, isAdult: true }
 
 // TODO: Write your code here
+// After completing this exercise, export your function like this:
+// export { createPerson };
 
 
 // =============================================================================
@@ -140,27 +160,5 @@
 // - Include an explicit return type annotation
 
 // TODO: Write your code here
-
-
-// =============================================================================
-// Export all your functions and variables so the tests can use them
-// =============================================================================
-// TODO: Uncomment these exports after you've written your code above
-/*
-export {
-  firstName,
-  age,
-  isActive,
-  lastName,
-  score,
-  isComplete,
-  numbers,
-  colors,
-  addNumbers,
-  greet,
-  findMax,
-  greetWithDefault,
-  createPerson,
-  getCoordinates,
-};
-*/
+// After completing this exercise, export your function like this:
+// export { getCoordinates };
