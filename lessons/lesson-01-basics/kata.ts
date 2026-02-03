@@ -55,9 +55,12 @@ export { lastName, score, isComplete };
 // - A number array called 'numbers' containing [1, 2, 3, 4, 5]
 // - A string array called 'colors' containing ["red", "green", "blue"]
 
+const numbers: number[] = [1, 2, 3, 4, 5]
+const colors: Array<string> = ["red", "green", "blue"]
+
 // TODO: Write your code here
 // After completing this exercise, export your arrays like this:
-// export { numbers, colors };
+export { numbers, colors };
 
 
 // =============================================================================
@@ -71,9 +74,13 @@ export { lastName, score, isComplete };
 // - Returns the sum of a and b
 // - Has an explicit return type annotation of 'number'
 
+function addNumbers(a: number, b: number): number {
+  return a + b
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { addNumbers };
+export { addNumbers };
 
 
 // =============================================================================
@@ -88,7 +95,11 @@ export { lastName, score, isComplete };
 
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { greet };
+
+function greet(name: string): string {
+  return `Hello, ${name}!`
+}
+export { greet };
 
 
 // =============================================================================
