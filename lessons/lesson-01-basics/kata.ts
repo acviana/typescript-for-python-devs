@@ -19,9 +19,9 @@
 // - A boolean variable called 'isActive' with the value true
 
 // TODO: Write your code here
-const firstName: string = "Alice"
-const age: number = 30
-const isActive: boolean = true
+const firstName: string = "Alice";
+const age: number = 30;
+const isActive: boolean = true;
 
 export { firstName, age, isActive };
 
@@ -38,9 +38,9 @@ export { firstName, age, isActive };
 // - A variable 'isComplete' with the value false
 
 // TODO: Write your code here
-const lastName = "Smith"
-const score = 95.5
-const isComplete = false
+const lastName = "Smith";
+const score = 95.5;
+const isComplete = false;
 
 export { lastName, score, isComplete };
 
@@ -115,7 +115,11 @@ export { greet };
 
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { findMax };
+
+function findMax(numbers: Array<number>): number {
+  return Math.max(...numbers)
+}
+export { findMax };
 
 
 // =============================================================================
@@ -133,9 +137,13 @@ export { greet };
 // - greetWithDefault("Alice") should return "Hello, Alice!"
 // - greetWithDefault() should return "Hello, Guest!"
 
+function greetWithDefault(name: string = "Guest"): string {
+  return `Hello, ${name}!`
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { greetWithDefault };
+export { greetWithDefault };
 
 
 // =============================================================================
