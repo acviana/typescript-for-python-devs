@@ -164,6 +164,20 @@ export { greetWithDefault };
 // After completing this exercise, export your function like this:
 // export { createPerson };
 
+interface Person {
+  "name": string;
+  "age": number;
+  "isAdult": boolean;
+}
+
+function createPerson(name: string, age: number): Person {
+  return {
+    "name": name,
+    "age": age,
+    "isAdult": age >= 18
+  }
+}
+export { createPerson }
 
 // =============================================================================
 // Exercise 9: Working with Tuples
@@ -181,3 +195,9 @@ export { greetWithDefault };
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
 // export { getCoordinates };
+
+function getCoordinates(): [number, number] {
+  return [10, 20]
+}
+
+export { getCoordinates }
