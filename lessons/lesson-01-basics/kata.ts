@@ -55,8 +55,8 @@ export { lastName, score, isComplete };
 // - A number array called 'numbers' containing [1, 2, 3, 4, 5]
 // - A string array called 'colors' containing ["red", "green", "blue"]
 
-const numbers: number[] = [1, 2, 3, 4, 5]
-const colors: Array<string> = ["red", "green", "blue"]
+const numbers: number[] = [1, 2, 3, 4, 5];
+const colors: Array<string> = ["red", "green", "blue"];
 
 // TODO: Write your code here
 // After completing this exercise, export your arrays like this:
@@ -75,7 +75,7 @@ export { numbers, colors };
 // - Has an explicit return type annotation of 'number'
 
 function addNumbers(a: number, b: number): number {
-  return a + b
+  return a + b;
 }
 
 // TODO: Write your code here
@@ -97,7 +97,7 @@ export { addNumbers };
 // After completing this exercise, export your function like this:
 
 function greet(name: string): string {
-  return `Hello, ${name}!`
+  return `Hello, ${name}!`;
 }
 export { greet };
 
@@ -117,7 +117,7 @@ export { greet };
 // After completing this exercise, export your function like this:
 
 function findMax(numbers: Array<number>): number {
-  return Math.max(...numbers)
+  return Math.max(...numbers);
 }
 export { findMax };
 
@@ -138,7 +138,7 @@ export { findMax };
 // - greetWithDefault() should return "Hello, Guest!"
 
 function greetWithDefault(name: string = "Guest"): string {
-  return `Hello, ${name}!`
+  return `Hello, ${name}!`;
 }
 
 // TODO: Write your code here
@@ -165,19 +165,19 @@ export { greetWithDefault };
 // export { createPerson };
 
 interface Person {
-  "name": string;
-  "age": number;
-  "isAdult": boolean;
+  name: string;
+  age: number;
+  isAdult: boolean;
 }
 
 function createPerson(name: string, age: number): Person {
   return {
-    "name": name,
-    "age": age,
-    "isAdult": age >= 18
-  }
+    name,
+    age,
+    isAdult: age >= 18
+  };
 }
-export { createPerson }
+export { createPerson };
 
 // =============================================================================
 // Exercise 9: Working with Tuples
@@ -197,7 +197,7 @@ export { createPerson }
 // export { getCoordinates };
 
 function getCoordinates(): [number, number] {
-  return [10, 20]
+  return [10, 20];
 }
 
-export { getCoordinates }
+export { getCoordinates };
