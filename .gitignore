@@ -23,6 +23,8 @@ coverage/
 *.swo
 *~
 .DS_Store
+.markdownlint.json
+.markdownlintrc
 
 # Environment variables
 .env
