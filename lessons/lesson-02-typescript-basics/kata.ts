@@ -1,9 +1,10 @@
 /**
- * Lesson 1: TypeScript Basics
+ * Lesson 2: TypeScript Basics
  * 
  * In this lesson, you'll practice the fundamentals of TypeScript's type system.
  * Complete each exercise by replacing the TODO comments with working code.
  * 
+ * Prerequisites: Complete Lessons 0 and 1 first!
  * Run `npm run test:watch` to see your progress!
  */
 

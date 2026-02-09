@@ -1,4 +1,4 @@
-# Lesson 2: Interfaces & Type Aliases
+# Lesson 3: Interfaces & Type Aliases
 
 ## Learning Objectives
 

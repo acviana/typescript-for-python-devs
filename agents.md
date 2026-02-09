@@ -116,40 +116,48 @@ Add the new lesson to the "Lessons" section and progress tracker.
 
 Based on Python developer needs, suggested progression:
 
-1. **Lesson 1: TypeScript Basics** ✅ (Complete)
+0. **Lesson 0: JavaScript Syntax Fundamentals** ✅ (Complete)
+   - Variables (const/let/var), strings, arrays, objects, operators, ternary
+
+1. **Lesson 1: JavaScript Functions & Operators** ✅ (Complete)
+   - Functions, nullish coalescing, destructuring, loops, spread
+
+2. **Lesson 2: TypeScript Basics** ✅ (Complete)
    - Basic types, functions, arrays, objects, tuples
 
-2. **Lesson 2: Interfaces & Type Aliases**
+3. **Lesson 3: Interfaces & Type Aliases** ✅ (Complete)
    - Interface definitions, type aliases, extending interfaces
 
-3. **Lesson 3: Union & Intersection Types**
+4. **Lesson 4: Union & Intersection Types**
    - Union types, intersection types, type guards, discriminated unions
 
-4. **Lesson 4: Classes & Access Modifiers**
+5. **Lesson 5: Classes & Access Modifiers**
    - Class syntax, public/private/protected, constructors, inheritance
 
-5. **Lesson 5: Enums & Literal Types**
+6. **Lesson 6: Enums & Literal Types**
    - Enum types, const enums, string/numeric literals, template literals
 
-6. **Lesson 6: Array Methods with Types**
+7. **Lesson 7: Array Methods with Types**
    - map, filter, reduce, find with proper typing
 
-7. **Lesson 7: Generics Basics**
+8. **Lesson 8: Generics Basics**
    - Generic functions, generic interfaces, type constraints
 
-8. **Lesson 8: Advanced Generics**
+9. **Lesson 9: Advanced Generics**
    - Conditional types, mapped types, utility types
 
-9. **Lesson 9: Async/Await & Promises**
-   - Promise types, async functions, error handling
+10. **Lesson 10: Async/Await & Promises**
+    - Promise types, async functions, error handling
 
-10. **Lesson 10: Working with Node.js APIs**
+11. **Lesson 11: Working with Node.js APIs**
     - File system, path operations, typed Node modules
 
 ## Design Principles
 
 ### For Learners
 - **Incremental complexity** - Start simple, build up
+- **Sequential progression** - Each lesson assumes completion of prior lessons
+- **No concept out-of-order** - Don't use concepts before they're taught
 - **Clear instructions** - No ambiguity about what to implement
 - **Immediate feedback** - Tests show progress instantly
 - **Python comparisons** - Help translate existing knowledge

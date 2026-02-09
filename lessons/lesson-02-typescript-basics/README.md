@@ -1,6 +1,6 @@
-# Lesson 1: TypeScript Basics
+# Lesson 2: TypeScript Basics
 
-Welcome to your first TypeScript lesson! In this lesson, you'll learn the fundamental building blocks of TypeScript's type system.
+Welcome to Lesson 2! Now that you understand JavaScript syntax and functions, let's learn the fundamental building blocks of TypeScript's type system.
 
 ## Learning Objectives
 

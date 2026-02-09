@@ -37,6 +37,85 @@ npm run test:ui
 npm run type-check
 ```
 
+## Important: Lesson Order
+
+**Complete lessons sequentially!** Each lesson builds on concepts from previous lessons:
+
+Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3
+
+Don't skip ahead - you'll need the fundamentals from earlier lessons.
+
+## Lessons
+
+### Lesson 0: JavaScript Syntax Fundamentals
+**Location:** `lessons/lesson-00-syntax-fundamentals/`
+
+**Topics covered:**
+- Variable declarations (const, let, var)
+- String templates and concatenation
+- Array indexing and basic methods
+- Object property access
+- Equality operators (== vs ===)
+- Logical operators (&&, ||, !)
+- Ternary operator
+
+**To start:**
+1. Read `lessons/lesson-00-syntax-fundamentals/README.md`
+2. Open `lessons/lesson-00-syntax-fundamentals/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
+### Lesson 1: JavaScript Functions & Operators
+**Location:** `lessons/lesson-01-functions-operators/`
+
+**Topics covered:**
+- Function declarations and arrow functions
+- Nullish coalescing (??) and optional chaining (?.)
+- Destructuring objects and arrays
+- Loops (for, for...of, for...in, forEach)
+- Spread operator (...)
+- Combining multiple concepts
+
+**To start:**
+1. Read `lessons/lesson-01-functions-operators/README.md`
+2. Open `lessons/lesson-01-functions-operators/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
+### Lesson 2: TypeScript Basics
+**Location:** `lessons/lesson-02-typescript-basics/`
+
+**Topics covered:**
+- Type annotations for primitives (string, number, boolean)
+- Type inference
+- Arrays and tuples
+- Object types
+- Function signatures
+- Optional parameters
+
+**To start:**
+1. Read `lessons/lesson-02-typescript-basics/README.md`
+2. Open `lessons/lesson-02-typescript-basics/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
+### Lesson 3: Interfaces & Type Aliases
+**Location:** `lessons/lesson-03-interfaces/`
+
+**Topics covered:**
+- Defining interfaces
+- Creating type aliases
+- Optional and readonly properties
+- Extending interfaces
+- Function types
+- Complex type composition
+
+**To start:**
+1. Read `lessons/lesson-03-interfaces/README.md`
+2. Open `lessons/lesson-03-interfaces/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
 ## Lessons
 
 ### Lesson 1: TypeScript Basics
@@ -105,7 +184,9 @@ After completing a lesson:
 
 ## Progress Tracking
 
-- [ ] Lesson 1: TypeScript Basics
-- [ ] Lesson 2: Interfaces & Type Aliases
+- [ ] Lesson 0: JavaScript Syntax Fundamentals
+- [ ] Lesson 1: JavaScript Functions & Operators
+- [ ] Lesson 2: TypeScript Basics
+- [ ] Lesson 3: Interfaces & Type Aliases
 
 Happy learning!

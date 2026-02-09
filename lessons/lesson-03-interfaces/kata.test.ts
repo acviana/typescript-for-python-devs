@@ -1,5 +1,5 @@
 /**
- * Tests for Lesson 2: Interfaces & Type Aliases
+ * Tests for Lesson 3: Interfaces & Type Aliases
  * 
  * These tests will validate your solutions. Don't modify this file!
  * Run `npm run test:watch` to see your progress.
@@ -7,7 +7,7 @@
 
 import { describe, it, expect, beforeAll } from 'vitest';
 
-describe('Lesson 2: Interfaces & Type Aliases', () => {
+describe('Lesson 3: Interfaces & Type Aliases', () => {
   let kata: any;
 
   beforeAll(async () => {

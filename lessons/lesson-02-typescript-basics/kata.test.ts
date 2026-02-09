@@ -1,5 +1,5 @@
 /**
- * Tests for Lesson 1: TypeScript Basics
+ * Tests for Lesson 2: TypeScript Basics
  * 
  * These tests will validate your solutions. Don't modify this file!
  * Run `npm run test:watch` to see your progress.
@@ -7,7 +7,7 @@
 
 import { describe, it, expect, beforeAll } from 'vitest';
 
-describe('Lesson 1: TypeScript Basics', () => {
+describe('Lesson 2: TypeScript Basics', () => {
   let kata: any;
 
   beforeAll(async () => {

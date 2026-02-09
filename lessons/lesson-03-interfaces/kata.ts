@@ -1,9 +1,10 @@
 /**
- * Lesson 2: Interfaces & Type Aliases
+ * Lesson 3: Interfaces & Type Aliases
  * 
  * In this lesson, you'll learn how to define custom types using interfaces
  * and type aliases - essential tools for creating well-typed applications.
  * 
+ * Prerequisites: Complete Lessons 0, 1, and 2 first!
  * Run `npm run test:watch` to see your progress!
  */
 
