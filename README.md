@@ -56,6 +56,23 @@ npm run type-check
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
+### Lesson 2: Interfaces & Type Aliases
+**Location:** `lessons/lesson-02-interfaces/`
+
+**Topics covered:**
+- Defining interfaces
+- Creating type aliases
+- Optional and readonly properties
+- Extending interfaces
+- Function types
+- Complex type composition
+
+**To start:**
+1. Read `lessons/lesson-02-interfaces/README.md`
+2. Open `lessons/lesson-02-interfaces/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
 ## Learning Tips
 
 1. **Read the error messages** - TypeScript's compiler errors are your friend. They tell you exactly what's wrong.
@@ -89,6 +106,6 @@ After completing a lesson:
 ## Progress Tracking
 
 - [ ] Lesson 1: TypeScript Basics
-- [ ] Lesson 2: Coming soon...
+- [ ] Lesson 2: Interfaces & Type Aliases
 
 Happy learning!
