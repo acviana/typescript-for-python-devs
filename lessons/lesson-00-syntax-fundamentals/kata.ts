@@ -7,6 +7,8 @@
  * Run `npm run test:watch` to see your progress!
  */
 
+import { age } from "../lesson-02-typescript-basics/kata";
+
 // =============================================================================
 // Exercise 1: Variable Declarations
 // =============================================================================
@@ -26,9 +28,13 @@
 // - A let variable 'counter' with the value 0
 // - Then increment counter by 1 (counter = counter + 1)
 
+const MY_CONSTANT: number = 42
+let counter: number = 0
+counter = counter + 1
+
 // TODO: Write your code here
 // After completing this exercise, export your variables like this:
-// export { MY_CONSTANT, counter };
+export { MY_CONSTANT, counter };
 
 
 // =============================================================================
@@ -53,9 +59,15 @@
 //   (use a variable name = "Bob" in your concatenation)
 // - Create a multi-line string 'poem' with two lines: "Roses are red" and "Violets are blue"
 
+let name: string = "Alice"
+const greeting: string = `Hello, ${name}!`
+name = "Bob"
+const farewell: string = "Goodbye, " + name + "!"
+const poem: string = `Roses are red
+Violets are blue`
 // TODO: Write your code here
 // After completing this exercise, export your strings like this:
-// export { greeting, farewell, poem };
+export { greeting, farewell, poem };
 
 
 // =============================================================================
@@ -83,9 +95,15 @@
 // - Create a variable 'fruitCount' with the length of the fruits array
 // - Create a new array 'someFruits' using slice to get the first 2 fruits
 
+const fruits: Array<string> = ["apple", "banana", "cherry"]
+const firstFruit: string = fruits[0]
+const lastFruit: string = fruits[fruits.length - 1]
+const fruitCount: number = fruits.length
+const someFruits: Array<string> = fruits.slice(0, 2)
+
 // TODO: Write your code here
 // After completing this exercise, export your variables like this:
-// export { fruits, firstFruit, lastFruit, fruitCount, someFruits };
+export { fruits, firstFruit, lastFruit, fruitCount, someFruits };
 
 
 // =============================================================================
@@ -102,12 +120,12 @@
 // - Bracket notation: obj["property"] (when key is dynamic or has special chars)
 //
 // TODO: Given this object:
-// const person = {
-//   firstName: "John",
-//   lastName: "Doe",
-//   age: 30,
-//   "favorite-color": "blue"  // Note: dash in key name
-// };
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  "favorite-color": "blue"  // Note: dash in key name
+};
 //
 // Create the following variables:
 // - Use dot notation to get firstName and assign to 'personFirstName'
@@ -116,9 +134,14 @@
 //   const key = "age";
 //   const personAge = person[key];
 
+const personFirstName: string = person.firstName
+const favoriteColor: string = person["favorite-color"]
+const key: string = "age"
+const personAge: number = person[key]
+
 // TODO: Write your code here
 // After completing this exercise, export your variables like this:
-// export { person, personFirstName, favoriteColor, personAge };
+export { person, personFirstName, favoriteColor, personAge };
 
 
 // =============================================================================
@@ -148,9 +171,14 @@
 //
 // This exercise demonstrates why you should always use ===
 
+const looseEqual1: boolean = "5" == 5
+const strictEqual1: boolean = "5" === 5
+const looseEqual2: boolean = 0 == false
+const strictEqual2: boolean = 0 === false
+
 // TODO: Write your code here
 // After completing this exercise, export your variables like this:
-// export { looseEqual1, strictEqual1, looseEqual2, strictEqual2 };
+export { looseEqual1, strictEqual1, looseEqual2, strictEqual2 };
 
 
 // =============================================================================
@@ -177,9 +205,15 @@
 // - Assign (5 > 3 && 10 < 20) to 'combinedAnd'
 // - Assign (5 > 10 || 10 < 20) to 'combinedOr'
 
+const andResult: boolean = (true && false)
+const orResult: boolean = (true || false)
+const notResult: boolean = !true
+const combinedAnd: boolean = (5 > 3 && 10 < 20)
+const combinedOr: boolean = (5 > 10 || 10 < 20)
+
 // TODO: Write your code here
 // After completing this exercise, export your variables like this:
-// export { andResult, orResult, notResult, combinedAnd, combinedOr };
+export { andResult, orResult, notResult, combinedAnd, combinedOr };
 
 
 // =============================================================================
@@ -207,9 +241,15 @@
 //   Assign the result of (score >= 90 ? "A" : score >= 80 ? "B" : "C") to 'grade'
 //   (This shows nested ternaries - use sparingly!)
 
+const simpleCondition: string = (10 > 5 ? "yes" : "no")
+const temperature: number = 75
+const weatherStatus: string = temperature > 70 ? "warm" : "cold"
+const score: number = 85
+const grade: string = score >= 90 ? "A" : score >= 80 ? "B" : "C"
+
 // TODO: Write your code here
 // After completing this exercise, export your variables like this:
-// export { simpleCondition, weatherStatus, grade };
+export { simpleCondition, weatherStatus, grade };
 
 // This empty export makes the file a module for TypeScript
-export {};
+export { };
