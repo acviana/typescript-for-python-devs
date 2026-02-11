@@ -68,7 +68,7 @@ If you're coming from Python, here are the key syntax differences:
 | `==` | `===` | Strict equality (no type coercion) |
 | N/A | `==` | Loose equality (avoid - does type coercion) |
 | `and` | `&&` | Logical AND |
-| `or` | `||` | Logical OR |
+| `or` | `\|\|` | Logical OR |
 | `not` | `!` | Logical NOT |
 | `x if cond else y` | `cond ? x : y` | Ternary operator |
 
