@@ -37,9 +37,19 @@
 // - Write an arrow function 'square' with implicit return that takes one parameter and returns its square
 // - Write an arrow function 'greetPerson' that takes a name and returns "Hello, {name}!"
 
+function addNumbers(a: number, b: number): number {
+  return a + b;
+}
+
+const multiplyNumbers = (a: number, b: number): number => { return a * b };
+
+const square = (a: number): number => a ** 2;
+
+const greetPerson = (name: string): string => `Hello, ${name}!`
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { addNumbers, multiplyNumbers, square, greetPerson };
+export { addNumbers, multiplyNumbers, square, greetPerson };
 
 
 // =============================================================================
@@ -76,9 +86,21 @@
 // - Write 'getCountOrZero' that takes a count and returns count ?? 0
 //   (This shows that 0 is a valid value, not "missing")
 
+function getValueOrDefault(value: any): string {
+  return value ?? "default";
+}
+
+function getUserCity(user: any): any {
+  return user?.address?.city
+}
+
+function getCountOrZero(count: number): number {
+  return count ?? 0
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { getValueOrDefault, getUserCity, getCountOrZero };
+export { getValueOrDefault, getUserCity, getCountOrZero };
 
 
 // =============================================================================
