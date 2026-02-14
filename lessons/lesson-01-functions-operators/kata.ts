@@ -8,6 +8,8 @@
  * Run `npm run test:watch` to see your progress!
  */
 
+import { person } from "../lesson-00-syntax-fundamentals/kata";
+
 // =============================================================================
 // Exercise 1: Function Declarations & Arrow Functions
 // =============================================================================
@@ -130,17 +132,39 @@ export { getValueOrDefault, getUserCity, getCountOrZero };
 // - Write 'getFirstTwo' that takes an array and returns an object with 'first' and 'second'
 //   properties by destructuring the first two elements
 //   Example: getFirstTwo([1, 2, 3]) → { first: 1, second: 2 }
-//
+
+function getFirstTwo(input: Array<number>): { first: number, second: number } {
+  const [first, second] = input
+  return { first, second }
+};
+
 // - Write 'getPersonInfo' that takes a person object with { firstName, lastName, age }
 //   and returns a string using destructuring: "{firstName} {lastName} is {age} years old"
-//
+type Person = {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+function getPersonInfo({ firstName, lastName, age }: Person): string {
+  return `${firstName} ${lastName} is ${age} years old`
+}
+
 // - Write 'splitArray' that takes an array and returns an object with 'head' (first element)
 //   and 'tail' (rest of elements) using destructuring
 //   Example: splitArray([1, 2, 3, 4]) → { head: 1, tail: [2, 3, 4] }
 
+type SplitArrayReturn = {
+  head: number;
+  tail: number[];
+}
+function splitArray(input: number[]): SplitArrayReturn {
+  const [head, ...tail] = input
+  return { head, tail }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { getFirstTwo, getPersonInfo, splitArray };
+export { getFirstTwo, getPersonInfo, splitArray };
 
 
 // =============================================================================
@@ -264,4 +288,4 @@ export { getValueOrDefault, getUserCity, getCountOrZero };
 // export { processUsers };
 
 // This empty export makes the file a module for TypeScript
-export {};
+export { };
