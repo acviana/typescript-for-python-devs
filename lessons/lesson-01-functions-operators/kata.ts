@@ -196,19 +196,48 @@ export { getFirstTwo, getPersonInfo, splitArray };
 // TODO: Implement the following functions:
 // - Write 'sumArray' that takes an array of numbers and returns their sum
 //   Use a for...of loop
-//
+
+function sumArray(numbers: Array<number>): number {
+  let numberSum: number = 0
+  for (const item of numbers) {
+    numberSum = numberSum + item
+  }
+  return numberSum
+}
 // - Write 'countProperties' that takes an object and returns the number of properties
 //   Use a for...in loop
-//
+
+function countProperties(inputObject: object): number {
+  let propertyCount: number = 0
+  for (const item in inputObject) {
+    propertyCount = propertyCount + 1
+  }
+  return propertyCount
+}
+
 // - Write 'doubleArray' that takes an array of numbers and returns a new array
 //   with each number doubled. Use forEach and push to build the new array.
-//
+
+function doubleArray(inputArray: Array<number>): Array<number> {
+  const outputArray: Array<number> = []
+  inputArray.forEach(value => { outputArray.push(value * 2) })
+  return outputArray
+}
+
 // - Write 'findFirst' that takes an array and a value, and returns the index
 //   of the first occurrence (or -1 if not found). Use a traditional for loop.
+function findFirst(inputArray: any, value: any): number {
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === value) {
+      return i
+    }
+  }
+  return -1
+}
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { sumArray, countProperties, doubleArray, findFirst };
+export { sumArray, countProperties, doubleArray, findFirst };
 
 
 // =============================================================================
