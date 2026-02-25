@@ -241,7 +241,7 @@ export { sumArray, countProperties, doubleArray, findFirst };
 
 
 // =============================================================================
-// Exercise 5: Spread Operator (...)
+// Exercise 5: Spread Operator (...) 
 // =============================================================================
 // The spread operator (...) copies or merges arrays and objects:
 //
@@ -268,22 +268,35 @@ export { sumArray, countProperties, doubleArray, findFirst };
 //
 // TODO: Implement the following functions:
 // - Write 'copyArray' that takes an array and returns a shallow copy using spread
-//
+
+const copyArray = (inputArray: Array<any>): Array<any> => [...inputArray]
+
 // - Write 'mergeArrays' that takes two arrays and returns a new array with all elements
 //   from both arrays using spread
-//
+
+//function mergeArrays(array1: Array<any>, array2: Array<any>): Array<any> {
+//  return [...array1, ...array2]
+//}
+
+const mergeArrays = (array1: Array<any>, array2: Array<any>): Array<any> => [...array1, ...array2];
+
+
 // - Write 'addProperty' that takes an object and a key-value pair, and returns
 //   a new object with that property added (use spread)
 //   Example: addProperty({ a: 1 }, "b", 2) → { a: 1, b: 2 }
-//
+
+const addProperty = (inputObject: object, inputKey: string, inputValue: any): object => ({ ...inputObject, [inputKey]: inputValue });
+
 // - Write 'updatePerson' that takes a person object and an updates object,
 //   and returns a new person with updates applied (later properties win)
 //   Example: updatePerson({ name: "Alice", age: 30 }, { age: 31 }) 
 //            → { name: "Alice", age: 31 }
 
+const updatePerson = (personObject: object, updatesObject: object): object => ({ ...personObject, ...updatesObject })
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { copyArray, mergeArrays, addProperty, updatePerson };
+export { copyArray, mergeArrays, addProperty, updatePerson };
 
 
 // =============================================================================
@@ -312,9 +325,23 @@ export { sumArray, countProperties, doubleArray, findFirst };
 //
 // Bonus: Use nullish coalescing (??) instead of destructuring default for city
 
+type ProcessUsersInput = {
+  name: string,
+  age: number,
+  city?: string
+}
+
+function processUsers(inputArray: Array<ProcessUsersInput>): Array<string> {
+  const outputArray: Array<string> = []
+  for (const person of inputArray) {
+    outputArray.push(`${person.name} (${person.age}) from ${person.city ?? "Unknown"}`)
+  }
+  return outputArray
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { processUsers };
+export { processUsers };
 
 // This empty export makes the file a module for TypeScript
 export { };
