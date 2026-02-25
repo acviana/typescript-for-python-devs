@@ -43,7 +43,7 @@ function addNumbers(a: number, b: number): number {
   return a + b;
 }
 
-const multiplyNumbers = (a: number, b: number): number => { return a * b };
+const multiplyNumbers = (a: number, b: number): number => a * b;
 
 const square = (a: number): number => a ** 2;
 
@@ -88,15 +88,15 @@ export { addNumbers, multiplyNumbers, square, greetPerson };
 // - Write 'getCountOrZero' that takes a count and returns count ?? 0
 //   (This shows that 0 is a valid value, not "missing")
 
-function getValueOrDefault(value: any): string {
+function getValueOrDefault(value: unknown): unknown {
   return value ?? "default";
 }
 
-function getUserCity(user: any): any {
+function getUserCity(user: any): string | null | undefined {
   return user?.address?.city
 }
 
-function getCountOrZero(count: number): number {
+function getCountOrZero(count: unknown): number | null | undefined {
   return count ?? 0
 }
 
