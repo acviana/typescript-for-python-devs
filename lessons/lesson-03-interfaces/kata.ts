@@ -1,9 +1,9 @@
 /**
  * Lesson 3: Interfaces & Type Aliases
- * 
+ *
  * In this lesson, you'll learn how to define custom types using interfaces
  * and type aliases - essential tools for creating well-typed applications.
- * 
+ *
  * Prerequisites: Complete Lessons 0, 1, and 2 first!
  * Run `npm run test:watch` to see your progress!
  */
@@ -36,19 +36,18 @@
 // TODO: Write your code here
 
 interface Product {
-  id: number,
-  name: string,
-  price: number,
-  inStock: boolean
+  id: number;
+  name: string;
+  price: number;
+  inStock: boolean;
 }
 
 function formatProduct(product: Product): string {
-  return `${product.name} ($${product.price})`
+  return `${product.name} ($${product.price})`;
 }
 // After completing this exercise, export your interface and function like this:
 export type { Product };
 export { formatProduct };
-
 
 // =============================================================================
 // Exercise 2: Type Alias for Union Types
@@ -64,7 +63,7 @@ export { formatProduct };
 // - "approved"
 // - "rejected"
 
-type Status = "pending" | "approved" | "rejected"
+type Status = "pending" | "approved" | "rejected";
 
 // Then write a function called 'getStatusMessage' that:
 // - Takes a parameter 'status' of type Status
@@ -76,13 +75,15 @@ type Status = "pending" | "approved" | "rejected"
 
 function getStatusMessage(status: Status): string {
   if (status === "pending") {
-    return "Application is being reviewed"
-  } if (status === "approved") {
-    return "Application approved"
-  } if (status == "rejected") {
-    return "Application rejected"
+    return "Application is being reviewed";
+  }
+  if (status === "approved") {
+    return "Application approved";
+  }
+  if (status == "rejected") {
+    return "Application rejected";
   } else {
-    return ""
+    return "";
   }
 }
 
@@ -90,7 +91,6 @@ function getStatusMessage(status: Status): string {
 // After completing this exercise, export your type and function like this:
 export type { Status };
 export { getStatusMessage };
-
 
 // =============================================================================
 // Exercise 3: Optional Properties
@@ -111,10 +111,10 @@ export { getStatusMessage };
 // - phone?: string (optional)
 
 interface User {
-  id: number,
-  username: string,
-  email?: string,
-  phone?: string
+  id: number;
+  username: string;
+  email?: string;
+  phone?: string;
 }
 
 // Then write a function called 'displayContact' that:
@@ -124,14 +124,13 @@ interface User {
 // - Has an explicit return type of string
 
 function displayContact(user: User): string {
-  return user.email ?? user.phone ?? "No contact info"
+  return user.email ?? user.phone ?? "No contact info";
 }
 
 // TODO: Write your code here
 // After completing this exercise, export your interface and function like this:
 export type { User };
 export { displayContact };
-
 
 // =============================================================================
 // Exercise 4: Readonly Properties
@@ -154,11 +153,24 @@ export { displayContact };
 // - Returns an object of type Config with those values
 // - Has an explicit return type of Config
 
+interface Config {
+  readonly apiUrl: string;
+  readonly timeout: number;
+  retryAttempts: number;
+}
+
+function createConfig(
+  apiUrl: string,
+  timeout: number,
+  retryAttempts: number,
+): Config {
+  return { apiUrl, timeout, retryAttempts };
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your interface and function like this:
-// export type { Config };
-// export { createConfig };
-
+export type { Config };
+export { createConfig };
 
 // =============================================================================
 // Exercise 5: Extending Interfaces
@@ -174,11 +186,21 @@ export { displayContact };
 // TODO: Create an interface called 'Animal' with:
 // - name: string
 // - age: number
-//
+
+interface Animal {
+  name: string;
+  age: number;
+}
+
 // Then create an interface called 'Dog' that extends Animal and adds:
 // - breed: string
 // - isGoodBoy: boolean
-//
+
+interface Dog extends Animal {
+  breed: string;
+  isGoodBoy: boolean;
+}
+
 // Finally, write a function called 'describeDog' that:
 // - Takes a parameter 'dog' of type Dog
 // - Returns a string: "{name} is a {age} year old {breed}"
@@ -187,11 +209,14 @@ export { displayContact };
 // Example: describeDog({ name: "Max", age: 3, breed: "Labrador", isGoodBoy: true })
 //          should return "Max is a 3 year old Labrador"
 
+function describeDog(dog: Dog): string {
+  return `${dog.name} is a ${dog.age} year old ${dog.breed}`;
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your interfaces and function like this:
-// export type { Animal, Dog };
-// export { describeDog };
-
+export type { Animal, Dog };
+export { describeDog };
 
 // =============================================================================
 // Exercise 6: Function Type with Interface
@@ -223,7 +248,6 @@ export { displayContact };
 // export type { MathOperation };
 // export { calculate };
 
-
 // =============================================================================
 // Exercise 7: Type Alias for Function
 // =============================================================================
@@ -252,7 +276,6 @@ export { displayContact };
 // export type { StringTransformer };
 // export { transformStrings };
 
-
 // =============================================================================
 // Exercise 8: Complex Type Composition
 // =============================================================================
@@ -279,7 +302,7 @@ export { displayContact };
 // - Calculates and returns the sum of (quantity * price) for all items
 // - Has an explicit return type of number
 //
-// Example: 
+// Example:
 // calculateOrderTotal({
 //   orderId: "ORD-123",
 //   items: [
@@ -296,4 +319,4 @@ export { displayContact };
 // export { calculateOrderTotal };
 
 // This empty export makes the file a module for TypeScript
-export { };
+export {};
