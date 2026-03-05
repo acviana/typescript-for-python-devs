@@ -270,7 +270,9 @@ export { calculate };
 // TODO: Create a type alias called 'StringTransformer' for a function that:
 // - Takes one parameter: str (string)
 // - Returns a string
-//
+
+type StringTransformer = (param: string) => string;
+
 // Then write a function called 'transformStrings' that:
 // - Takes two parameters:
 //   - strings: string[] (array of strings)
@@ -281,10 +283,15 @@ export { calculate };
 // Example: transformStrings(["hello", "world"], s => s.toUpperCase())
 //          should return ["HELLO", "WORLD"]
 
+const transformStrings = (
+  strings: string[],
+  transformer: StringTransformer,
+): string[] => strings.map((item: string): string => transformer(item));
+
 // TODO: Write your code here
 // After completing this exercise, export your type and function like this:
-// export type { StringTransformer };
-// export { transformStrings };
+export type { StringTransformer };
+export { transformStrings };
 
 // =============================================================================
 // Exercise 8: Complex Type Composition
