@@ -232,7 +232,11 @@ export { describeDog };
 // TODO: Create an interface called 'MathOperation' that defines a function:
 // - Takes two parameters, both numbers
 // - Returns a number
-//
+
+interface MathOperation {
+  (num1: number, num2: number): number;
+}
+
 // Then write a function called 'calculate' that:
 // - Takes three parameters:
 //   - a: number
@@ -243,10 +247,16 @@ export { describeDog };
 //
 // Example: calculate(5, 3, (x, y) => x + y) should return 8
 
+const calculate = (
+  num1: number,
+  num2: number,
+  operation: MathOperation,
+): number => operation(num1, num2);
+
 // TODO: Write your code here
 // After completing this exercise, export your interface and function like this:
-// export type { MathOperation };
-// export { calculate };
+export type { MathOperation };
+export { calculate };
 
 // =============================================================================
 // Exercise 7: Type Alias for Function
