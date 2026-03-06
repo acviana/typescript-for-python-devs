@@ -80,7 +80,7 @@ function getStatusMessage(status: Status): string {
   if (status === "approved") {
     return "Application approved";
   }
-  if (status == "rejected") {
+  if (status === "rejected") {
     return "Application rejected";
   } else {
     return "";
@@ -302,18 +302,33 @@ export { transformStrings };
 // TODO: Create the following types:
 //
 // 1. A type alias 'PaymentMethod' that can be: "credit-card" | "paypal" | "bank-transfer"
-//
+
+type PaymentMethod = "credit-card" | "paypal" | "bank-transfer";
+
 // 2. An interface 'OrderItem' with:
 //    - productId: number
 //    - quantity: number
 //    - price: number
-//
+
+interface OrderItem {
+  productId: number;
+  quantity: number;
+  price: number;
+}
+
 // 3. An interface 'Order' with:
 //    - orderId: string
 //    - items: OrderItem[] (array of OrderItem)
 //    - paymentMethod: PaymentMethod
 //    - totalAmount: number
-//
+
+interface Order {
+  orderId: string;
+  items: OrderItem[];
+  paymentMethod: PaymentMethod;
+  totalAmount: number;
+}
+
 // Then write a function called 'calculateOrderTotal' that:
 // - Takes a parameter 'order' of type Order
 // - Calculates and returns the sum of (quantity * price) for all items
@@ -330,10 +345,18 @@ export { transformStrings };
 //   totalAmount: 40
 // }) should return 40
 
+function calculateOrderTotal(order: Order): number {
+  let orderTotal: number = 0;
+  for (const item of order.items) {
+    orderTotal = orderTotal + item.price * item.quantity;
+  }
+  return orderTotal;
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your types and function like this:
-// export type { PaymentMethod, OrderItem, Order };
-// export { calculateOrderTotal };
+export type { PaymentMethod, OrderItem, Order };
+export { calculateOrderTotal };
 
 // This empty export makes the file a module for TypeScript
 export {};
