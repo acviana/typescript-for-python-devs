@@ -41,7 +41,7 @@ npm run type-check
 
 **Complete lessons sequentially!** Each lesson builds on concepts from previous lessons:
 
-Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3
+Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4
 
 Don't skip ahead - you'll need the fundamentals from earlier lessons.
 
@@ -116,39 +116,20 @@ Don't skip ahead - you'll need the fundamentals from earlier lessons.
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
-## Lessons
-
-### Lesson 1: TypeScript Basics
-**Location:** `lessons/lesson-01-basics/`
+### Lesson 4: Union & Intersection Types
+**Location:** `lessons/lesson-04-union-intersection/`
 
 **Topics covered:**
-- Type annotations for primitives (string, number, boolean)
-- Type inference
-- Arrays and tuples
-- Object types
-- Function signatures
-- Optional parameters
+- Union types (`string | number`)
+- Type narrowing with `typeof`, `in`, and `instanceof`
+- Union with `null` — handling nullable values safely
+- Discriminated unions (tagged unions with a `kind` field)
+- Intersection types (`TypeA & TypeB`)
+- Combining all concepts in a realistic scenario
 
 **To start:**
-1. Read `lessons/lesson-01-basics/README.md`
-2. Open `lessons/lesson-01-basics/kata.ts`
-3. Complete the TODOs
-4. Run `npm run test:watch` to see your progress
-
-### Lesson 2: Interfaces & Type Aliases
-**Location:** `lessons/lesson-02-interfaces/`
-
-**Topics covered:**
-- Defining interfaces
-- Creating type aliases
-- Optional and readonly properties
-- Extending interfaces
-- Function types
-- Complex type composition
-
-**To start:**
-1. Read `lessons/lesson-02-interfaces/README.md`
-2. Open `lessons/lesson-02-interfaces/kata.ts`
+1. Read `lessons/lesson-04-union-intersection/README.md`
+2. Open `lessons/lesson-04-union-intersection/kata.ts`
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
@@ -188,5 +169,6 @@ After completing a lesson:
 - [ ] Lesson 1: JavaScript Functions & Operators
 - [ ] Lesson 2: TypeScript Basics
 - [ ] Lesson 3: Interfaces & Type Aliases
+- [ ] Lesson 4: Union & Intersection Types
 
 Happy learning!
