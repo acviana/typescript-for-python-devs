@@ -24,7 +24,9 @@
 //   def fn(x: str | int) -> str: ...
 //
 // TODO: Create a type alias called 'StringOrNumber' that is string | number
-//
+
+type StringOrNumber = string | number;
+
 // Then write a function called 'formatValue' that:
 // - Takes a parameter 'value' of type StringOrNumber
 // - Returns a string in the format "Value: {value}"
@@ -34,10 +36,17 @@
 //   formatValue(42)      → "Value: 42"
 //   formatValue("hello") → "Value: hello"
 
+// Imperative Solution
+// function formatValue(value: StringOrNumber): string {
+//   return `Value: ${value}`;
+// }
+
+const formatValue = (value: StringOrNumber): string => `Value: ${value}`;
+
 // TODO: Write your code here
 // After completing this exercise, export your type and function like this:
-// export type { StringOrNumber };
-// export { formatValue };
+export type { StringOrNumber };
+export { formatValue };
 
 // =============================================================================
 // Exercise 2: typeof Type Guard
@@ -67,9 +76,16 @@
 //   double(5)       → 10
 //   double("ha")    → "haha"
 
+function double(value: string | number): string | number {
+  if (typeof value === "string") {
+    return value.repeat(2);
+  }
+  return value * 2;
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { double };
+export { double };
 
 // =============================================================================
 // Exercise 3: Union with null
@@ -89,12 +105,25 @@
 // - Takes a parameter 'value' of type string | null
 // - Returns the length of the string, or 0 if value is null
 // - Has an explicit return type of number
-//
+
+// function getLength(value: string | null): number {
+//  if (value === null) {
+//    return 0;
+//  }
+//  return value?.length;
+// }
+
+const getLength = (value: string | null): number =>
+  value === null ? 0 : value.length;
+
 // Then write a function called 'firstChar' that:
 // - Takes a parameter 'value' of type string | null
 // - Returns the first character of the string, or "?" if value is null or empty
 // - Has an explicit return type of string
-//
+
+const firstChar = (value: string | null): string =>
+  value === null ? "?" : value === "" ? "?" : value[0];
+
 // Example:
 //   getLength("hello") → 5
 //   getLength(null)    → 0
@@ -104,7 +133,7 @@
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { getLength, firstChar };
+export { getLength, firstChar };
 
 // =============================================================================
 // Exercise 4: 'in' Operator Type Guard
@@ -127,7 +156,17 @@
 // 'Dog' with:
 // - name: string
 // - breed: string
-//
+
+interface Cat {
+  name: string;
+  purrs: boolean;
+}
+
+interface Dog {
+  name: string;
+  breed: string;
+}
+
 // Then write a function called 'describeAnimal' that:
 // - Takes a parameter 'animal' of type Cat | Dog
 // - If the animal is a Cat, returns "{name} is a cat"
@@ -139,10 +178,15 @@
 //   describeAnimal({ name: "Whiskers", purrs: true })         → "Whiskers is a cat"
 //   describeAnimal({ name: "Rex", breed: "German Shepherd" }) → "Rex is a German Shepherd"
 
+const describeAnimal = (animal: Cat | Dog): string =>
+  "purrs" in animal
+    ? `${animal.name} is a cat`
+    : `${animal.name} is a ${animal.breed}`;
+
 // TODO: Write your code here
 // After completing this exercise, export your interfaces and function like this:
-// export type { Cat, Dog };
-// export { describeAnimal };
+export type { Cat, Dog };
+export { describeAnimal };
 
 // =============================================================================
 // Exercise 5: instanceof Type Guard
