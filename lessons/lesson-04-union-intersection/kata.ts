@@ -413,9 +413,30 @@ export { createRecord };
 // - deviceId: string
 // - title: string
 // - message: string
-//
+
+interface EmailNotification {
+  channel: "email";
+  to: string;
+  subject: string;
+  body: string;
+}
+
+interface SMSNotification {
+  channel: "sms";
+  phoneNumber: string;
+  message: string;
+}
+
+interface PushNotification {
+  channel: "push";
+  deviceId: string;
+  title: string;
+  message: string;
+}
 // Then create a type alias 'Notification' = EmailNotification | SMSNotification | PushNotification
-//
+
+type Notification = EmailNotification | SMSNotification | PushNotification;
+
 // Then write a function called 'formatNotification' that:
 // - Takes a parameter 'notification' of type Notification
 // - Returns a formatted string based on the channel:
@@ -423,7 +444,18 @@ export { createRecord };
 //   - sms:   "SMS to {phoneNumber}: {message}"
 //   - push:  "Push to {deviceId}: {title}"
 // - Has an explicit return type of string
-//
+
+function formatNotification(notification: Notification): string {
+  switch (notification.channel) {
+    case "email":
+      return `Email to ${notification.to}: ${notification.subject}`;
+    case "sms":
+      return `SMS to ${notification.phoneNumber}: ${notification.message}`;
+    case "push":
+      return `Push to ${notification.deviceId}: ${notification.title}`;
+  }
+}
+
 // Then write a function called 'getRecipient' that:
 // - Takes a parameter 'notification' of type Notification
 // - Returns the recipient identifier as a string:
@@ -440,10 +472,26 @@ export { createRecord };
 //   getRecipient({ channel: "push", deviceId: "device-42", title: "Update", message: "v2 is out" })
 //     → "device-42"
 
+function getRecipient(notification: Notification): string {
+  switch (notification.channel) {
+    case "email":
+      return notification.to;
+    case "sms":
+      return notification.phoneNumber;
+    case "push":
+      return notification.deviceId;
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your types and functions like this:
-// export type { EmailNotification, SMSNotification, PushNotification, Notification };
-// export { formatNotification, getRecipient };
+export type {
+  EmailNotification,
+  SMSNotification,
+  PushNotification,
+  Notification,
+};
+export { formatNotification, getRecipient };
 
 // This empty export makes the file a module for TypeScript
 export {};
