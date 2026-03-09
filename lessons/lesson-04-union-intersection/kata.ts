@@ -122,7 +122,8 @@ const getLength = (value: string | null): number =>
 // - Has an explicit return type of string
 
 const firstChar = (value: string | null): string =>
-  value === null ? "?" : value === "" ? "?" : value[0];
+  //  value === null ? "?" : value === "" ? "?" : value[0];
+  value ? value[0] : "?";
 
 // Example:
 //   getLength("hello") → 5
