@@ -266,9 +266,28 @@ export { formatError };
 // - kind: "triangle"
 // - base: number
 // - height: number
-//
+
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Rectangle {
+  kind: "rectangle";
+  width: number;
+  height: number;
+}
+
+interface Triangle {
+  kind: "triangle";
+  base: number;
+  height: number;
+}
+
 // Then create a type alias 'Shape' = Circle | Rectangle | Triangle
-//
+
+type Shape = Circle | Rectangle | Triangle;
+
 // Then write a function called 'getArea' that:
 // - Takes a parameter 'shape' of type Shape
 // - Returns the area as a number
@@ -285,10 +304,21 @@ export { formatError };
 //   getArea({ kind: "rectangle", width: 4, height: 6 }) → 24
 //   getArea({ kind: "triangle", base: 3, height: 8 })   → 12
 
+function getArea(shape: Shape): number {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "rectangle":
+      return shape.width * shape.height;
+    case "triangle":
+      return 0.5 * shape.base * shape.height;
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your types and function like this:
-// export type { Circle, Rectangle, Triangle, Shape };
-// export { getArea };
+export type { Circle, Rectangle, Triangle, Shape };
+export { getArea };
 
 // =============================================================================
 // Exercise 7: Intersection Types
