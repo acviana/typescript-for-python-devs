@@ -344,9 +344,20 @@ export { getArea };
 // 'Timestamped' with:
 // - createdAt: string
 // - updatedAt: string
-//
+
+interface Identifiable {
+  id: number;
+}
+
+interface Timestamped {
+  createdAt: string;
+  updatedAt: string;
+}
+
 // Then create a type alias 'TimestampedRecord' = Identifiable & Timestamped
-//
+
+type TimestampedRecord = Identifiable & Timestamped;
+
 // Then write a function called 'createRecord' that:
 // - Takes a parameter 'id' of type number
 // - Returns a TimestampedRecord with:
@@ -358,10 +369,25 @@ export { getArea };
 // Example:
 //   createRecord(1) → { id: 1, createdAt: "2026-01-01", updatedAt: "2026-01-01" }
 
+// Imperative Attempt
+// function createRecord(id: number): TimestampedRecord {
+//  return {
+//    id: id,
+//    createdAt: "2026-01-01",
+//    updatedAt: "2026-01-01",
+//  };
+// }
+
+const createRecord = (id: number): TimestampedRecord => ({
+  id: id,
+  createdAt: "2026-01-01",
+  updatedAt: "2026-01-01",
+});
+
 // TODO: Write your code here
 // After completing this exercise, export your types and function like this:
-// export type { Identifiable, Timestamped, TimestampedRecord };
-// export { createRecord };
+export type { Identifiable, Timestamped, TimestampedRecord };
+export { createRecord };
 
 // =============================================================================
 // Exercise 8: Comprehensive — Notification System
