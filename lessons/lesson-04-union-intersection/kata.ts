@@ -216,6 +216,7 @@ export { describeAnimal };
 //   formatError(new Error("something broke")) → "Error: something broke"
 //   formatError("all good")                   → "Message: all good"
 
+// Imperative Attempt
 //function formatError(value: Error | string): string {
 //  if (value instanceof Error) {
 //    return `Error: ${value.message}`;
