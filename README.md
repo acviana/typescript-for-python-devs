@@ -41,7 +41,7 @@ npm run type-check
 
 **Complete lessons sequentially!** Each lesson builds on concepts from previous lessons:
 
-Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4
+Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5
 
 Don't skip ahead - you'll need the fundamentals from earlier lessons.
 
@@ -133,6 +133,24 @@ Don't skip ahead - you'll need the fundamentals from earlier lessons.
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
+### Lesson 5: Classes & Access Modifiers
+**Location:** `lessons/lesson-05-classes/`
+
+**Topics covered:**
+- Class syntax: properties, constructors, methods
+- Access modifiers: `public`, `private`, `protected`
+- Constructor parameter shorthand
+- `readonly` class properties
+- Getters and setters (`get`/`set`)
+- Inheritance with `extends` and `super`
+- Interface contracts with `implements`
+
+**To start:**
+1. Read `lessons/lesson-05-classes/README.md`
+2. Open `lessons/lesson-05-classes/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
 ## Learning Tips
 
 1. **Read the error messages** - TypeScript's compiler errors are your friend. They tell you exactly what's wrong.
@@ -170,5 +188,6 @@ After completing a lesson:
 - [ ] Lesson 2: TypeScript Basics
 - [ ] Lesson 3: Interfaces & Type Aliases
 - [ ] Lesson 4: Union & Intersection Types
+- [ ] Lesson 5: Classes & Access Modifiers
 
 Happy learning!
