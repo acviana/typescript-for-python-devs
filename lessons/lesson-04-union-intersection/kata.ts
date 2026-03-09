@@ -216,9 +216,19 @@ export { describeAnimal };
 //   formatError(new Error("something broke")) → "Error: something broke"
 //   formatError("all good")                   → "Message: all good"
 
+//function formatError(value: Error | string): string {
+//  if (value instanceof Error) {
+//    return `Error: ${value.message}`;
+//  }
+//  return `Message: ${value}`;
+//}
+
+const formatError = (value: Error | string): string =>
+  value instanceof Error ? `Error: ${value.message}` : `Message: ${value}`;
+
 // TODO: Write your code here
 // After completing this exercise, export your function like this:
-// export { formatError };
+export { formatError };
 
 // =============================================================================
 // Exercise 6: Discriminated Unions
