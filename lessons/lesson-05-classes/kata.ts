@@ -242,9 +242,29 @@ export { Product };
 //   t.fahrenheit  → 32
 //   t.celsius = -300  → throws Error
 
+class Temperature {
+  constructor(private _celsius: number) {}
+
+  get celsius(): number {
+    return this._celsius;
+  }
+
+  set celsius(temp: number) {
+    if (temp < -273.15) {
+      Error("Temperature cannot be below absolute zero");
+    } else {
+      this._celsius = temp;
+    }
+  }
+
+  get fahrenheit(): number {
+    return (this._celsius * 9) / 5 + 32;
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your class like this:
-// export { Temperature };
+export { Temperature };
 
 // =============================================================================
 // Exercise 6: Inheritance
