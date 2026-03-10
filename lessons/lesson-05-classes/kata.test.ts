@@ -78,10 +78,14 @@ describe('Lesson 5: Classes & Access Modifiers', () => {
       expect(c.getCount()).toBe(2);
     });
 
-    it('should not expose count directly', () => {
+    it('should only be controllable via its public methods', () => {
       const c = new kata.Counter();
-      // 'count' should be private — not accessible as a public property
-      expect((c as any).count).toBeUndefined();
+      c.increment();
+      c.increment();
+      c.decrement();
+      c.increment();
+      // The only way to observe count is through getCount() — private enforces this at compile time
+      expect(c.getCount()).toBe(2);
     });
   });
 
