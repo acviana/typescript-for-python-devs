@@ -189,9 +189,23 @@ export { Rectangle };
 //   p.applyDiscount(20)   → (price becomes 80)
 //   p.getLabel()          → "Widget - $80"
 
+class Product {
+  constructor(
+    readonly id: number,
+    readonly name: string,
+    public price: number,
+  ) {}
+
+  getLabel = (): string => `${this.name} - $${this.price}`;
+
+  applyDiscount(percent: number): void {
+    this.price = this.price * (1 - percent / 100);
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your class like this:
-// export { Product };
+export { Product };
 
 // =============================================================================
 // Exercise 5: Getters & Setters
