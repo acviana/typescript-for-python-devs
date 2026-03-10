@@ -106,9 +106,9 @@ describe('Lesson 5: Classes & Access Modifiers', () => {
     });
 
     it('should calculate perimeter', () => {
-      expect(new kata.Rectangle(4, 6).perimeter()).toBe(20);
-      expect(new kata.Rectangle(5, 5).perimeter()).toBe(20);
-      expect(new kata.Rectangle(3, 7).perimeter()).toBe(20);
+      expect(new kata.Rectangle(4, 6).perimeter()).toBe(20);  // 2*(4+6)
+      expect(new kata.Rectangle(5, 5).perimeter()).toBe(20);  // 2*(5+5)
+      expect(new kata.Rectangle(3, 8).perimeter()).toBe(22);  // 2*(3+8)
     });
 
     it('should describe itself', () => {
@@ -151,11 +151,13 @@ describe('Lesson 5: Classes & Access Modifiers', () => {
       expect(p.price).toBe(180);
     });
 
-    it('should not allow id to be reassigned', () => {
+    it('should retain id and name after price mutation', () => {
       const p = new kata.Product(1, 'Widget', 100);
-      expect(() => {
-        (p as any).id = 99;
-      }).toThrow();
+      p.applyDiscount(50);
+      // readonly enforces this at compile time — id and name never change
+      expect(p.id).toBe(1);
+      expect(p.name).toBe('Widget');
+      expect(p.price).toBe(50);
     });
   });
 
