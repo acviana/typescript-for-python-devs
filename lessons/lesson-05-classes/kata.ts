@@ -40,9 +40,20 @@
 //   const p = new Person("Alice", 30);
 //   p.greet() → "Hi, I'm Alice and I'm 30 years old"
 
+class Person {
+  constructor(
+    public name: string,
+    public age: number,
+  ) {}
+
+  greet(): string {
+    return `Hi, I'm ${this.name} and I'm ${this.age} years old`;
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your class like this:
-// export { Person };
+export { Person };
 
 // =============================================================================
 // Exercise 2: Access Modifiers
@@ -74,9 +85,25 @@
 //   c.decrement();
 //   c.getCount() → 1
 
+class Counter {
+  constructor(private count: number = 0) {}
+
+  increment(): void {
+    this.count += 1;
+  }
+
+  decrement(): void {
+    this.count -= 1;
+  }
+
+  getCount(): number {
+    return this.count;
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your class like this:
-// export { Counter };
+export { Counter };
 
 // =============================================================================
 // Exercise 3: Constructor Parameter Shorthand
@@ -112,9 +139,28 @@
 //   r.perimeter() → 20
 //   r.describe()  → "Rectangle: 4x6"
 
+class Rectangle {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {}
+
+  area(): number {
+    return this.width * this.height;
+  }
+
+  perimeter(): number {
+    return 2 * (this.height + this.width);
+  }
+
+  describe(): string {
+    return `Rectangle: ${this.width}x${this.height}`;
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your class like this:
-// export { Rectangle };
+export { Rectangle };
 
 // =============================================================================
 // Exercise 4: Readonly Properties
