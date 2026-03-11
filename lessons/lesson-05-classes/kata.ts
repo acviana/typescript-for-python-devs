@@ -251,7 +251,7 @@ class Temperature {
 
   set celsius(temp: number) {
     if (temp < -273.15) {
-      Error("Temperature cannot be below absolute zero");
+      throw new Error("Temperature cannot be below absolute zero");
     } else {
       this._celsius = temp;
     }
@@ -314,7 +314,7 @@ class Dog extends Animal {
     super(name);
   }
 
-  speak = (): string => `{this.name} barks`;
+  speak = (): string => `${this.name} barks`;
 
   toString = (): string => `Dog: ${this.name} (${this.breed})`;
 }
@@ -335,7 +335,7 @@ class Cat extends Animal {
   speak = (): string => `${this.name} meows`;
 
   toString = (): string =>
-    this.indoor ? `Cat: ${this.name} (indoor)` : `Cat: ${this.name} (outdoor`;
+    this.indoor ? `Cat: ${this.name} (indoor)` : `Cat: ${this.name} (outdoor)`;
 }
 
 // Example:
@@ -373,16 +373,39 @@ export { Animal, Dog, Cat };
 //
 // 'Serializable' with:
 // - method 'serialize': takes no arguments, returns string
-//
+
+interface Serializable {
+  serialize(): string;
+}
+
 // 'Resettable' with:
 // - method 'reset': takes no arguments, returns void
-//
+
+interface Resettable {
+  reset(): void;
+}
+
 // Then create a class 'UserSettings' that implements BOTH interfaces, with:
 // - constructor shorthand: public theme: string, public language: string
 // - 'serialize' returns a JSON-like string: '{"theme":"{theme}","language":"{language}"}'
 //   (use template literals — no need to call JSON.stringify)
 // - 'reset' sets theme back to "light" and language back to "en"
-//
+
+class UserSettings implements Serializable, Resettable {
+  constructor(
+    public theme: string,
+    public language: string,
+  ) {}
+
+  serialize = (): string =>
+    `{"theme":"${this.theme}","language":"${this.language}"}`;
+
+  reset(): void {
+    this.language = "en";
+    this.theme = "light";
+  }
+}
+
 // Example:
 //   const s = new UserSettings("dark", "fr");
 //   s.serialize()   → '{"theme":"dark","language":"fr"}'
@@ -391,8 +414,8 @@ export { Animal, Dog, Cat };
 
 // TODO: Write your code here
 // After completing this exercise, export your interfaces and class like this:
-// export type { Serializable, Resettable };
-// export { UserSettings };
+export type { Serializable, Resettable };
+export { UserSettings };
 
 // =============================================================================
 // Exercise 8: Comprehensive — Shape Hierarchy
