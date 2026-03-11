@@ -41,7 +41,7 @@ npm run type-check
 
 **Complete lessons sequentially!** Each lesson builds on concepts from previous lessons:
 
-Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5
+Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5 → Lesson 6
 
 Don't skip ahead - you'll need the fundamentals from earlier lessons.
 
@@ -151,6 +151,24 @@ Don't skip ahead - you'll need the fundamentals from earlier lessons.
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
+### Lesson 6: Enums & Literal Types
+**Location:** `lessons/lesson-06-enums-literals/`
+
+**Topics covered:**
+- String literal types (deepening)
+- Numeric enums with custom values
+- String enums
+- Enums vs literal unions — when to use each
+- Numeric literal types
+- Template literal types
+- Enums as class property types
+
+**To start:**
+1. Read `lessons/lesson-06-enums-literals/README.md`
+2. Open `lessons/lesson-06-enums-literals/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
 ## Learning Tips
 
 1. **Read the error messages** - TypeScript's compiler errors are your friend. They tell you exactly what's wrong.
@@ -189,5 +207,6 @@ After completing a lesson:
 - [ ] Lesson 3: Interfaces & Type Aliases
 - [ ] Lesson 4: Union & Intersection Types
 - [ ] Lesson 5: Classes & Access Modifiers
+- [ ] Lesson 6: Enums & Literal Types
 
 Happy learning!
