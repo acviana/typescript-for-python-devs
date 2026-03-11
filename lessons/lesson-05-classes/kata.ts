@@ -296,9 +296,13 @@ export { Temperature };
 class Animal {
   constructor(public name: string) {}
 
-  speak = (): string => `${this.name} makes a sound`;
+  speak(): string {
+    return `${this.name} makes a sound`;
+  }
 
-  toString = (): string => `Animal: ${this.name}`;
+  toString(): string {
+    return `Animal: ${this.name}`;
+  }
 }
 
 // Then create a class 'Dog' that extends Animal with:
@@ -314,9 +318,13 @@ class Dog extends Animal {
     super(name);
   }
 
-  speak = (): string => `${this.name} barks`;
+  speak(): string {
+    return `${this.name} barks`;
+  }
 
-  toString = (): string => `Dog: ${this.name} (${this.breed})`;
+  toString(): string {
+    return `Dog: ${this.name} (${this.breed})`;
+  }
 }
 
 // Then create a class 'Cat' that extends Animal with:
@@ -332,10 +340,15 @@ class Cat extends Animal {
     super(name);
   }
 
-  speak = (): string => `${this.name} meows`;
+  speak(): string {
+    return `${this.name} meows`;
+  }
 
-  toString = (): string =>
-    this.indoor ? `Cat: ${this.name} (indoor)` : `Cat: ${this.name} (outdoor)`;
+  toString(): string {
+    return this.indoor
+      ? `Cat: ${this.name} (indoor)`
+      : `Cat: ${this.name} (outdoor)`;
+  }
 }
 
 // Example:
