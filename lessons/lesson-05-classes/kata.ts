@@ -441,7 +441,14 @@ export { UserSettings };
 // - method 'area': returns number
 // - method 'perimeter': returns number
 // - method 'describe': returns string
-//
+
+interface Shape {
+  readonly kind: string;
+  area(): number;
+  perimeter(): number;
+  describe(): string;
+}
+
 // Then create three classes that implement 'Shape':
 //
 // 'Circle' with:
@@ -450,20 +457,76 @@ export { UserSettings };
 // - 'area': Math.PI * radius ** 2
 // - 'perimeter': 2 * Math.PI * radius
 // - 'describe': "Circle with radius {radius}"
-//
+
+class Circle implements Shape {
+  readonly kind: string = "circle";
+  constructor(readonly radius: number) {}
+
+  area(): number {
+    return Math.PI * this.radius ** 2;
+  }
+
+  perimeter(): number {
+    return 2 * Math.PI * this.radius;
+  }
+
+  describe(): string {
+    return `Circle with radius ${this.radius}`;
+  }
+}
+
 // 'Square' with:
 // - constructor shorthand: readonly kind: string = "square", readonly side: number
 // - 'area': side ** 2
 // - 'perimeter': 4 * side
 // - 'describe': "Square with side {side}"
-//
+
+class Square implements Shape {
+  readonly kind: string = "square";
+  constructor(readonly side: number) {}
+
+  area(): number {
+    return this.side ** 2;
+  }
+
+  perimeter(): number {
+    return 4 * this.side;
+  }
+
+  describe(): string {
+    return `Square with side ${this.side}`;
+  }
+}
+
 // 'RightTriangle' with:
 // - constructor shorthand: readonly kind: string = "triangle",
 //   readonly base: number, readonly height: number
 // - 'area': 0.5 * base * height
 // - 'perimeter': base + height + Math.sqrt(base ** 2 + height ** 2)  (hypotenuse via Pythagoras)
 // - 'describe': "Right triangle with base {base} and height {height}"
-//
+
+class RightTriangle implements Shape {
+  readonly kind: string = "triangle";
+  constructor(
+    readonly base: number,
+    readonly height: number,
+  ) {}
+
+  area(): number {
+    return 0.5 * this.base * this.height;
+  }
+
+  perimeter(): number {
+    return (
+      this.base + this.height + Math.sqrt(this.base ** 2 + this.height ** 2)
+    );
+  }
+
+  describe(): string {
+    return `Right triangle with base ${this.base} and height ${this.height}`;
+  }
+}
+
 // Example:
 //   const c = new Circle(5);
 //   c.kind          → "circle"
@@ -478,8 +541,8 @@ export { UserSettings };
 
 // TODO: Write your code here
 // After completing this exercise, export your interface and classes like this:
-// export type { Shape as ShapeInterface };
-// export { Circle, Square, RightTriangle };
+export type { Shape as ShapeInterface };
+export { Circle, Square, RightTriangle };
 
 // This empty export makes the file a module for TypeScript
 export {};
