@@ -292,17 +292,52 @@ export { Temperature };
 // - constructor shorthand: public name: string
 // - A method 'speak' that returns: "{name} makes a sound"
 // - A method 'toString' that returns: "Animal: {name}"
-//
+
+class Animal {
+  constructor(public name: string) {}
+
+  speak = (): string => `${this.name} makes a sound`;
+
+  toString = (): string => `Animal: ${this.name}`;
+}
+
 // Then create a class 'Dog' that extends Animal with:
 // - constructor that takes name and public breed: string, calls super(name)
 // - Overrides 'speak' to return: "{name} barks"
 // - Overrides 'toString' to return: "Dog: {name} ({breed})"
-//
+
+class Dog extends Animal {
+  constructor(
+    name: string,
+    public breed: string,
+  ) {
+    super(name);
+  }
+
+  speak = (): string => `{this.name} barks`;
+
+  toString = (): string => `Dog: ${this.name} (${this.breed})`;
+}
+
 // Then create a class 'Cat' that extends Animal with:
 // - constructor that takes name and public indoor: boolean, calls super(name)
 // - Overrides 'speak' to return: "{name} meows"
 // - Overrides 'toString' to return: "Cat: {name}" + " (indoor)" if indoor is true, else " (outdoor)"
-//
+
+class Cat extends Animal {
+  constructor(
+    name: string,
+    public indoor: boolean,
+  ) {
+    super(name);
+  }
+
+  speak = (): string => `${this.name} meows`;
+
+  toString = (): string =>
+    this.indoor ? `Cat: ${this.name} (indoor)` : `Cat: ${this.name} (outdoor`;
+}
+
 // Example:
 //   new Animal("Beast").speak()       → "Beast makes a sound"
 //   new Dog("Rex", "Labrador").speak() → "Rex barks"
@@ -313,7 +348,7 @@ export { Temperature };
 
 // TODO: Write your code here
 // After completing this exercise, export your classes like this:
-// export { Animal, Dog, Cat };
+export { Animal, Dog, Cat };
 
 // =============================================================================
 // Exercise 7: Implementing Interfaces
