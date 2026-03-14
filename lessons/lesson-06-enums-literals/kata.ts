@@ -26,22 +26,37 @@
 //
 // TODO: Create a type alias called 'Direction' with values:
 // "north" | "south" | "east" | "west"
-//
+
+type Direction = "north" | "south" | "east" | "west";
+
 // Then write a function called 'getOpposite' that:
 // - Takes a parameter 'direction' of type Direction
 // - Returns the opposite direction as a Direction:
 //   north ↔ south, east ↔ west
 // - Has an explicit return type of Direction
 // - Uses a switch statement
-//
+
+function getOpposite(direction: Direction): Direction {
+  switch (direction) {
+    case "north":
+      return "south";
+    case "south":
+      return "north";
+    case "east":
+      return "west";
+    case "west":
+      return "east";
+  }
+}
+
 // Example:
 //   getOpposite("north") → "south"
 //   getOpposite("east")  → "west"
 
 // TODO: Write your code here
 // After completing this exercise, export your type and function like this:
-// export type { Direction };
-// export { getOpposite };
+export type { Direction };
+export { getOpposite };
 
 // =============================================================================
 // Exercise 2: Numeric Enums
@@ -55,19 +70,25 @@
 //
 // Python comparison:
 //   from enum import Enum
-//   class Priority(Enum):
+//   class Direction(Enum):
 //       LOW = 1
 //       MEDIUM = 2
 //       HIGH = 3
 //
-// Enum members are accessed as: Priority.Low, Priority.Medium, etc.
-// TypeScript also allows reverse lookup: Priority[1] → "Low"
+// Enum members are accessed as: Direction.Low, Priority.Medium, etc.
+// TypeScript also allows reverse lookup: Direction[1] → "Low"
 //
 // TODO: Create a numeric enum called 'Priority' with members:
 // - Low = 1
 // - Medium = 2
 // - High = 3
-//
+
+enum Priority {
+  Low = 1,
+  Medium = 2,
+  High = 3,
+}
+
 // Then write a function called 'getPriorityLabel' that:
 // - Takes a parameter 'priority' of type Priority
 // - Returns a human-readable string:
@@ -81,9 +102,20 @@
 //   getPriorityLabel(Priority.Low)    → "Low Priority"
 //   getPriorityLabel(Priority.High)   → "High Priority"
 
+function getPriorityLabel(priority: Priority): string {
+  switch (priority) {
+    case Priority.Low:
+      return "Low Priority";
+    case Priority.Medium:
+      return "Medium Priority";
+    case Priority.High:
+      return "High Priority";
+  }
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your enum and function like this:
-// export { Priority, getPriorityLabel };
+export { Priority, getPriorityLabel };
 
 // =============================================================================
 // Exercise 3: String Enums
@@ -110,7 +142,14 @@
 // - Post = "POST"
 // - Put = "PUT"
 // - Delete = "DELETE"
-//
+
+enum HttpMethod {
+  Get = "GET",
+  Post = "POST",
+  Put = "PUT",
+  Delete = "DELETE",
+}
+
 // Then write a function called 'isReadOnly' that:
 // - Takes a parameter 'method' of type HttpMethod
 // - Returns true if the method is GET (read-only), false otherwise
@@ -124,15 +163,32 @@
 //   PUT    → "PUT: Replace a resource"
 //   DELETE → "DELETE: Remove a resource"
 // - Has an explicit return type of string
-//
+
+function describeMethod(method: HttpMethod): string {
+  switch (method) {
+    case HttpMethod.Get:
+      return "GET: Retrieve a resource";
+    case HttpMethod.Post:
+      return "POST: Create a resource";
+    case HttpMethod.Put:
+      return "PUT: Replace a resource";
+    case HttpMethod.Delete:
+      return "DELETE: Remove a resource";
+  }
+}
+
 // Example:
 //   isReadOnly(HttpMethod.Get)    → true
 //   isReadOnly(HttpMethod.Post)   → false
 //   describeMethod(HttpMethod.Get) → "GET: Retrieve a resource"
 
+function isReadOnly(method: HttpMethod): boolean {
+  return method === HttpMethod.Get ? true : false;
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your enum and functions like this:
-// export { HttpMethod, isReadOnly, describeMethod };
+export { HttpMethod, isReadOnly, describeMethod };
 
 // =============================================================================
 // Exercise 4: Enums vs Literal Unions
@@ -159,7 +215,9 @@
 //
 // TODO: Using a LITERAL UNION (not an enum), create a type called 'CardSuit'
 // with values: "hearts" | "diamonds" | "clubs" | "spades"
-//
+
+type CardSuit = "hearts" | "diamonds" | "clubs" | "spades";
+
 // Then write a function called 'getSuitSymbol' that:
 // - Takes a parameter 'suit' of type CardSuit
 // - Returns the Unicode symbol for the suit:
@@ -168,7 +226,20 @@
 //   "clubs"    → "♣"
 //   "spades"   → "♠"
 // - Has an explicit return type of string
-//
+
+function getSuitSymbol(suit: CardSuit): string {
+  switch (suit) {
+    case "hearts":
+      return "♥";
+    case "diamonds":
+      return "♦";
+    case "clubs":
+      return "♣";
+    case "spades":
+      return "♠";
+  }
+}
+
 // Then write a function called 'getSuitColor' that:
 // - Takes a parameter 'suit' of type CardSuit
 // - Returns "red" for hearts and diamonds, "black" for clubs and spades
@@ -180,10 +251,14 @@
 //   getSuitColor("hearts")    → "red"
 //   getSuitColor("clubs")     → "black"
 
+function getSuitColor(suit: CardSuit): string {
+  return suit === "hearts" || suit === "diamonds" ? "red" : "black";
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your type and functions like this:
-// export type { CardSuit };
-// export { getSuitSymbol, getSuitColor };
+export type { CardSuit };
+export { getSuitSymbol, getSuitColor };
 
 // =============================================================================
 // Exercise 5: Numeric Literal Types
