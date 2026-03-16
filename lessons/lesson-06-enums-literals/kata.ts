@@ -183,7 +183,7 @@ function describeMethod(method: HttpMethod): string {
 //   describeMethod(HttpMethod.Get) → "GET: Retrieve a resource"
 
 function isReadOnly(method: HttpMethod): boolean {
-  return method === HttpMethod.Get ? true : false;
+  return method === HttpMethod.Get;
 }
 
 // TODO: Write your code here
@@ -251,7 +251,7 @@ function getSuitSymbol(suit: CardSuit): string {
 //   getSuitColor("hearts")    → "red"
 //   getSuitColor("clubs")     → "black"
 
-function getSuitColor(suit: CardSuit): string {
+function getSuitColor(suit: CardSuit): "red" | "black" {
   return suit === "hearts" || suit === "diamonds" ? "red" : "black";
 }
 
@@ -284,7 +284,7 @@ type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6;
 // - Has an explicit return type of boolean
 
 function isHighRoll(roll: DiceRoll): boolean {
-  return roll === 5 || roll === 6 ? true : false;
+  return roll === 5 || roll === 6;
 }
 
 // Then create a type alias called 'HttpSuccessCode' for: 200 | 201 | 204
@@ -394,7 +394,13 @@ export { formatUnit, isEventName };
 // - Todo = "todo"
 // - InProgress = "in_progress"
 // - Done = "done"
-//
+
+enum TaskStatus {
+  Todo = "todo",
+  InProgress = "in_progress",
+  Done = "done",
+}
+
 // Then create a class called 'Task' with:
 // - constructor shorthand: readonly id: number, public title: string,
 //   public status: TaskStatus
@@ -405,7 +411,35 @@ export { formatUnit, isEventName };
 //   but throws an Error with message "Task must be in progress to complete"
 //   if status is not TaskStatus.InProgress
 // - A method 'describe' that returns: "{title} [{status}]"
-//
+
+class Task {
+  constructor(
+    readonly id: number,
+    public title: string,
+    public status: TaskStatus,
+  ) {}
+
+  start(): void {
+    if (this.status === TaskStatus.Todo) {
+      this.status = TaskStatus.InProgress;
+    } else {
+      throw new Error("Task already started or done");
+    }
+  }
+
+  complete(): void {
+    if (this.status === TaskStatus.InProgress) {
+      this.status = TaskStatus.Done;
+    } else {
+      throw new Error("Task must be in progress to complete");
+    }
+  }
+
+  describe(): string {
+    return `${this.title} [${this.status}]`;
+  }
+}
+
 // Example:
 //   const t = new Task(1, "Write tests", TaskStatus.Todo);
 //   t.describe()  → "Write tests [todo]"
@@ -417,7 +451,7 @@ export { formatUnit, isEventName };
 
 // TODO: Write your code here
 // After completing this exercise, export your enum and class like this:
-// export { TaskStatus, Task };
+export { TaskStatus, Task };
 
 // =============================================================================
 // Exercise 8: Comprehensive — Traffic Light State Machine
@@ -429,16 +463,35 @@ export { formatUnit, isEventName };
 // - Red = "red"
 // - Yellow = "yellow"
 // - Green = "green"
-//
+
+enum TrafficLight {
+  Red = "red",
+  Yellow = "yellow",
+  Green = "green",
+}
+
 // Then create a numeric literal type called 'LightDuration' representing
 // the valid durations (in seconds): 30 | 45 | 60
-//
+
+type LightDuration = 30 | 45 | 60;
+
 // Then write a function called 'getNextLight' that:
 // - Takes a parameter 'current' of type TrafficLight
 // - Returns the next state in the cycle:
 //   Red → Green → Yellow → Red
 // - Has an explicit return type of TrafficLight
-//
+
+function getNextLight(current: TrafficLight): TrafficLight {
+  switch (current) {
+    case TrafficLight.Red:
+      return TrafficLight.Green;
+    case TrafficLight.Green:
+      return TrafficLight.Yellow;
+    case TrafficLight.Yellow:
+      return TrafficLight.Red;
+  }
+}
+
 // Then write a function called 'getLightDuration' that:
 // - Takes a parameter 'light' of type TrafficLight
 // - Returns the standard duration for that light as a LightDuration:
@@ -446,7 +499,18 @@ export { formatUnit, isEventName };
 //   Yellow → 30
 //   Green  → 45
 // - Has an explicit return type of LightDuration
-//
+
+function getLightDuration(light: TrafficLight): LightDuration {
+  switch (light) {
+    case TrafficLight.Red:
+      return 60;
+    case TrafficLight.Yellow:
+      return 30;
+    case TrafficLight.Green:
+      return 45;
+  }
+}
+
 // Then write a function called 'describeLightState' that:
 // - Takes a parameter 'light' of type TrafficLight
 // - Returns a full description string:
@@ -454,7 +518,18 @@ export { formatUnit, isEventName };
 //   Yellow → "Caution — yellow light (30s)"
 //   Green  → "Go — green light (45s)"
 // - Has an explicit return type of string
-//
+
+function describeLightState(light: TrafficLight): string {
+  switch (light) {
+    case TrafficLight.Red:
+      return "Stop — red light (60s)";
+    case TrafficLight.Yellow:
+      return "Caution — yellow light (30s)";
+    case TrafficLight.Green:
+      return "Go — green light (45s)";
+  }
+}
+
 // Example:
 //   getNextLight(TrafficLight.Red)     → TrafficLight.Green
 //   getNextLight(TrafficLight.Green)   → TrafficLight.Yellow
@@ -464,9 +539,9 @@ export { formatUnit, isEventName };
 
 // TODO: Write your code here
 // After completing this exercise, export your types and functions like this:
-// export { TrafficLight };
-// export type { LightDuration };
-// export { getNextLight, getLightDuration, describeLightState };
+export { TrafficLight };
+export type { LightDuration };
+export { getNextLight, getLightDuration, describeLightState };
 
 // This empty export makes the file a module for TypeScript
 export {};
