@@ -275,14 +275,22 @@ export { getSuitSymbol, getSuitColor };
 //   DiceRoll = Literal[1, 2, 3, 4, 5, 6]
 //
 // TODO: Create a type alias called 'DiceRoll' for: 1 | 2 | 3 | 4 | 5 | 6
-//
+
+type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6;
+
 // Then write a function called 'isHighRoll' that:
 // - Takes a parameter 'roll' of type DiceRoll
 // - Returns true if the roll is 5 or 6, false otherwise
 // - Has an explicit return type of boolean
-//
+
+function isHighRoll(roll: DiceRoll): boolean {
+  return roll === 5 || roll === 6 ? true : false;
+}
+
 // Then create a type alias called 'HttpSuccessCode' for: 200 | 201 | 204
-//
+
+type HttpSuccessCode = 200 | 201 | 204;
+
 // Then write a function called 'describeSuccessCode' that:
 // - Takes a parameter 'code' of type HttpSuccessCode
 // - Returns a description:
@@ -290,7 +298,17 @@ export { getSuitSymbol, getSuitColor };
 //   201 → "Created"
 //   204 → "No Content"
 // - Has an explicit return type of string
-//
+
+function describeSuccessCode(code: HttpSuccessCode): string {
+  switch (code) {
+    case 200:
+      return "OK";
+    case 201:
+      return "Created";
+    case 204:
+      return "No Content";
+  }
+}
 // Example:
 //   isHighRoll(6) → true
 //   isHighRoll(3) → false
@@ -299,8 +317,8 @@ export { getSuitSymbol, getSuitColor };
 
 // TODO: Write your code here
 // After completing this exercise, export your types and functions like this:
-// export type { DiceRoll, HttpSuccessCode };
-// export { isHighRoll, describeSuccessCode };
+export type { DiceRoll, HttpSuccessCode };
+export { isHighRoll, describeSuccessCode };
 
 // =============================================================================
 // Exercise 6: Template Literal Types
@@ -323,23 +341,32 @@ export { getSuitSymbol, getSuitColor };
 // TODO: Create a type alias called 'CSSUnit' that represents a string ending
 // in "px" or "rem" or "em" — use a template literal type:
 //   `${number}px` | `${number}rem` | `${number}em`
-//
+
+type CSSUnit = `${number}px` | `${number}rem` | `${number}em`;
+
 // Then write a function called 'formatUnit' that:
 // - Takes a 'value' of type number and a 'unit' of type "px" | "rem" | "em"
 // - Returns a CSSUnit string by combining them: e.g. "16px", "1.5rem"
 // - Has an explicit return type of CSSUnit
-//
+
+function formatUnit(value: number, unit: "px" | "rem" | "em"): CSSUnit {
+  return `${value}${unit}`;
+}
+
 // Then create a type alias called 'EventName' that represents a string
 // starting with "on" followed by a Capitalized word — use:
 //   `on${"Click" | "Change" | "Focus" | "Blur"}`
 // (This gives: "onClick" | "onChange" | "onFocus" | "onBlur")
-//
+
+type EventNameType = "Click" | "Change" | "Focus" | "Blur";
+type EventName = `on${EventNameType}`;
+
 // Then write a function called 'isEventName' that:
 // - Takes a parameter 'value' of type string
 // - Returns true if the value is one of the valid EventName values
 // - Has an explicit return type of boolean
 // - Hint: check if it starts with "on" and the rest is one of the known words
-//
+
 // Example:
 //   formatUnit(16, "px")   → "16px"
 //   formatUnit(1.5, "rem") → "1.5rem"
@@ -347,10 +374,13 @@ export { getSuitSymbol, getSuitColor };
 //   isEventName("onHover") → false
 //   isEventName("click")   → false
 
-// TODO: Write your code here
-// After completing this exercise, export your types and functions like this:
-// export type { CSSUnit, EventName };
-// export { formatUnit, isEventName };
+function isEventName(value: string): boolean {
+  const validEvents: EventName[] = ["onClick", "onChange", "onFocus", "onBlur"];
+  return (validEvents as string[]).includes(value);
+}
+
+export type { CSSUnit, EventName };
+export { formatUnit, isEventName };
 
 // =============================================================================
 // Exercise 7: Enum as a Class Property
