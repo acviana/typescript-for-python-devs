@@ -41,7 +41,7 @@ npm run type-check
 
 **Complete lessons sequentially!** Each lesson builds on concepts from previous lessons:
 
-Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5 → Lesson 6
+Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5 → Lesson 6 → Lesson 7
 
 Don't skip ahead - you'll need the fundamentals from earlier lessons.
 
@@ -169,6 +169,24 @@ Don't skip ahead - you'll need the fundamentals from earlier lessons.
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
+### Lesson 7: Array Methods with Types
+**Location:** `lessons/lesson-07-array-methods/`
+
+**Topics covered:**
+- `map` — transform arrays with typed callbacks
+- `filter` — filter arrays by predicate
+- `find` & `findIndex` — locate elements, handle `T | undefined`
+- `reduce` to a number — sum, product, max
+- `reduce` to an object — typed accumulators
+- Chaining methods — `filter` + `map` + `reduce`
+- Typed callbacks — generic `Predicate<T>` and `Transform<T, U>`
+
+**To start:**
+1. Read `lessons/lesson-07-array-methods/README.md`
+2. Open `lessons/lesson-07-array-methods/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
 ## Learning Tips
 
 1. **Read the error messages** - TypeScript's compiler errors are your friend. They tell you exactly what's wrong.
@@ -208,5 +226,6 @@ After completing a lesson:
 - [ ] Lesson 4: Union & Intersection Types
 - [ ] Lesson 5: Classes & Access Modifiers
 - [ ] Lesson 6: Enums & Literal Types
+- [ ] Lesson 7: Array Methods with Types
 
 Happy learning!
