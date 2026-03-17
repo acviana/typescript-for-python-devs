@@ -26,17 +26,24 @@
 // - Takes a parameter 'nums' of type number[]
 // - Returns a new array with every number doubled
 // - Has an explicit return type of number[]
-//
+
+const double = (nums: number[]): number[] => nums.map((n) => 2 * n);
+
 // TODO: Write a function called 'toStrings' that:
 // - Takes a parameter 'nums' of type number[]
 // - Returns a new array where every number is converted to a string
 // - Has an explicit return type of string[]
-//
+
+const toStrings = (nums: number[]): string[] => nums.map((n) => String(n));
+
 // TODO: Write a function called 'pluckNames' that:
 // - Takes a parameter 'people' of type Array<{ name: string; age: number }>
 // - Returns an array of just the name strings
 // - Has an explicit return type of string[]
-//
+
+const pluckNames = (people: Array<{ name: string; age: number }>): string[] =>
+  people.map((p) => p.name);
+
 // Example:
 //   double([1, 2, 3])         → [2, 4, 6]
 //   toStrings([1, 2, 3])      → ["1", "2", "3"]
@@ -45,7 +52,7 @@
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { double, toStrings, pluckNames };
+export { double, toStrings, pluckNames };
 
 // =============================================================================
 // Exercise 2: filter
@@ -64,17 +71,27 @@
 // - Takes a parameter 'nums' of type number[]
 // - Returns only the even numbers
 // - Has an explicit return type of number[]
-//
+
+const evens = (nums: number[]): number[] => nums.filter((n) => n % 2 === 0);
+
 // TODO: Write a function called 'longStrings' that:
 // - Takes parameters 'words' of type string[] and 'minLength' of type number
 // - Returns only strings with length >= minLength
 // - Has an explicit return type of string[]
-//
+
+const longStrings = (words: string[], minLength: number): string[] =>
+  words.filter((s) => s.length >= minLength);
+
 // TODO: Write a function called 'activeUsers' that:
 // - Takes a parameter 'users' of type Array<{ name: string; active: boolean }>
 // - Returns only users where active is true
 // - Has an explicit return type of Array<{ name: string; active: boolean }>
-//
+
+const activeUsers = (
+  users: Array<{ name: string; active: boolean }>,
+): Array<{ name: string; active: boolean }> =>
+  users.filter((u) => u.active === true);
+
 // Example:
 //   evens([1, 2, 3, 4, 5, 6])          → [2, 4, 6]
 //   longStrings(["hi", "hello", "hey"], 4) → ["hello"]
@@ -83,7 +100,7 @@
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { evens, longStrings, activeUsers };
+export { evens, longStrings, activeUsers };
 
 // =============================================================================
 // Exercise 3: find & findIndex
