@@ -123,17 +123,29 @@ export { evens, longStrings, activeUsers };
 // - Takes a parameter 'nums' of type number[] and 'target' of type number
 // - Returns the first number greater than target, or undefined if none
 // - Has an explicit return type of number | undefined
-//
+
+const findFirst = (nums: number[], target: number): number | undefined =>
+  nums.find((n) => n > target);
+
 // TODO: Write a function called 'findUserByName' that:
 // - Takes 'users' of type Array<{ id: number; name: string }> and 'name' of type string
 // - Returns the matching user object, or undefined if not found
 // - Has an explicit return type of { id: number; name: string } | undefined
-//
+
+const findUserByName = (
+  users: Array<{ id: number; name: string }>,
+  name: string,
+): { id: number; name: string } | undefined =>
+  users.find((u) => u.name === name);
+
 // TODO: Write a function called 'indexOfFirst' that:
 // - Takes a parameter 'nums' of type number[] and 'target' of type number
 // - Returns the index of the first number greater than target, or -1 if none
 // - Has an explicit return type of number
-//
+
+const indexOfFirst = (nums: number[], target: number): number =>
+  nums.findIndex((n) => n > target);
+
 // Example:
 //   findFirst([1, 2, 3, 4], 2)    → 3
 //   findFirst([1, 2, 3, 4], 10)   → undefined
@@ -144,7 +156,7 @@ export { evens, longStrings, activeUsers };
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { findFirst, findUserByName, indexOfFirst };
+export { findFirst, findUserByName, indexOfFirst };
 
 // =============================================================================
 // Exercise 4: reduce to a number
