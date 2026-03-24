@@ -177,18 +177,25 @@ export { findFirst, findUserByName, indexOfFirst };
 // - Returns the sum of all numbers using reduce
 // - Has an explicit return type of number
 // - Should return 0 for an empty array
-//
+
+const sum = (nums: number[]): number => nums.reduce((acc, n) => acc + n, 0);
+
 // TODO: Write a function called 'product' that:
 // - Takes a parameter 'nums' of type number[]
 // - Returns the product of all numbers using reduce
 // - Has an explicit return type of number
 // - Should return 1 for an empty array
-//
+
+const product = (nums: number[]): number => nums.reduce((acc, n) => acc * n, 1);
+
 // TODO: Write a function called 'max' that:
 // - Takes a parameter 'nums' of type number[] (assume non-empty)
 // - Returns the largest number using reduce
 // - Has an explicit return type of number
-//
+
+const max = (nums: number[]): number =>
+  nums.reduce((acc, n) => (acc > n ? acc : n));
+
 // Example:
 //   sum([1, 2, 3, 4])      → 10
 //   sum([])                → 0
@@ -198,7 +205,7 @@ export { findFirst, findUserByName, indexOfFirst };
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { sum, product, max };
+export { sum, product, max };
 
 // =============================================================================
 // Exercise 5: reduce to an object
@@ -216,6 +223,16 @@ export { findFirst, findUserByName, indexOfFirst };
 //   );
 //   // { a: 2, b: 1 }
 //
+// Note: The <Record<string, number>> between 'reduce' and '(' is a *type
+// argument* — it tells TypeScript what type the accumulator will be. We'll
+// cover this syntax fully in Lesson 8 (Generics). For now, just know it's
+// how you explicitly tell reduce what shape the accumulator takes when
+// TypeScript can't infer it from the initial value ({}) alone.
+//
+// Record<string, number> is a built-in TypeScript utility type that means
+// "an object whose keys are strings and values are numbers" — equivalent
+// to { [key: string]: number }.
+//
 // Python comparison:
 //   from collections import Counter
 //   counts = Counter(["a", "b", "a"])  # {"a": 2, "b": 1}
@@ -225,7 +242,13 @@ export { findFirst, findUserByName, indexOfFirst };
 // - Returns a Record<string, number> where each key is a word and the
 //   value is the number of times it appears
 // - Uses reduce with an explicit accumulator type
-//
+
+const countOccurrences = (words: string[]): Record<string, number> =>
+  words.reduce<Record<string, number>>((acc, key) => {
+    acc[key] = (acc[key] ?? 0) + 1;
+    return acc;
+  }, {});
+
 // TODO: Write a function called 'groupByFirstLetter' that:
 // - Takes a parameter 'words' of type string[]
 // - Returns a Record<string, string[]> where each key is a first letter
@@ -238,9 +261,14 @@ export { findFirst, findUserByName, indexOfFirst };
 //   groupByFirstLetter(["apple", "banana", "avocado", "blueberry", "cherry"])
 //     → { a: ["apple", "avocado"], b: ["banana", "blueberry"], c: ["cherry"] }
 
+const groupByFirstLetter = (words: string[]): Record<string, string[]> =>
+  words.reduce<Record<string, string[]>>((acc, key) => {
+    acc[key[0]] = acc[key[0]] ? [...acc[key[0]], key] : [key];
+    return acc;
+  }, {});
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { countOccurrences, groupByFirstLetter };
+export { countOccurrences, groupByFirstLetter };
 
 // =============================================================================
 // Exercise 6: Chaining methods
