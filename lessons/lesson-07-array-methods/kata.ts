@@ -290,13 +290,24 @@ export { countOccurrences, groupByFirstLetter };
 // - Filters to only even numbers, doubles each one, then sums them
 // - Uses filter + map + reduce chained together
 // - Has an explicit return type of number
-//
+
+const sumOfDoubledEvens = (nums: number[]): number =>
+  nums
+    .filter((n) => n % 2 === 0)
+    .map((n) => n * 2)
+    .reduce((acc, n) => acc + n, 0);
+
 // TODO: Write a function called 'namesOfAdults' that:
 // - Takes a parameter 'people' of type Array<{ name: string; age: number }>
 // - Filters to people aged 18 or over, then returns their names uppercased
 // - Uses filter + map chained together
 // - Has an explicit return type of string[]
-//
+
+const namesOfAdults = (
+  people: Array<{ name: string; age: number }>,
+): string[] =>
+  people.filter((p) => p.age >= 18).map((p) => p.name.toUpperCase());
+
 // Example:
 //   sumOfDoubledEvens([1, 2, 3, 4, 5])   → 12  (2*2 + 4*2 = 4 + 8)
 //   sumOfDoubledEvens([1, 3, 5])          → 0
@@ -308,7 +319,7 @@ export { countOccurrences, groupByFirstLetter };
 
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { sumOfDoubledEvens, namesOfAdults };
+export { sumOfDoubledEvens, namesOfAdults };
 
 // =============================================================================
 // Exercise 7: Typed callbacks
