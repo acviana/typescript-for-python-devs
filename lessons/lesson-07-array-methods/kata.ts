@@ -327,22 +327,47 @@ export { sumOfDoubledEvens, namesOfAdults };
 // Array methods accept callbacks. You can define the callback type explicitly
 // to make reusable, well-typed helper functions.
 //
-// Syntax:
+// The <T> in a type alias is a *type parameter* — a placeholder that gets
+// filled in at the point of use:
+//
 //   type Predicate<T> = (item: T) => boolean;
-//   type Transform<T, U> = (item: T) => U;
+//
+//   const isEven: Predicate<number> = (item) => item % 2 === 0;
+//   //                      ^^^^^^  T is filled in as number here
+//   const isLong: Predicate<string> = (item) => item.length > 5;
+//   //                      ^^^^^^  T is filled in as string here
+//
+// Functions can also be generic. The <T> goes right after the function name,
+// declaring that this function works with "some type T" — TypeScript infers T
+// from the arguments you pass at call time:
 //
 //   function filterWith<T>(arr: T[], pred: Predicate<T>): T[] {
 //     return arr.filter(pred);
 //   }
 //
+//   filterWith([1, 2, 3, 4], n => n > 2)              // T inferred as number
+//   filterWith(["a", "bb", "ccc"], s => s.length > 1) // T inferred as string
+//
+// Think of T like a variable, but for types. Just as `n` holds a number value
+// at runtime, T holds a type at compile time. When you have two type parameters
+// <T, U>, you're saying "two independent placeholders":
+//
+//   type Transform<T, U> = (item: T) => U;  // takes a T, returns a U
+//
+//   const stringify: Transform<number, string> = (item) => String(item);
+//   //                         ^^^^^^  ^^^^^^  T = number, U = string
+//
 // Python comparison:
 //   from typing import Callable, TypeVar
 //   T = TypeVar("T")
+//   U = TypeVar("U")
 //   def filter_with(arr: list[T], pred: Callable[[T], bool]) -> list[T]:
 //       return list(filter(pred, arr))
 //
 // TODO: Create a type alias called 'Predicate<T>' for: (item: T) => boolean
-//
+
+type Predicate<T> = (item: T) => boolean;
+
 // TODO: Create a type alias called 'Transform<T, U>' for: (item: T) => U
 //
 // TODO: Write a function called 'filterWith' that:

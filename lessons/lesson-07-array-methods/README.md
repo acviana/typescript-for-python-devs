@@ -56,6 +56,7 @@ npm run type-check
 - `find` always returns `T | undefined` — use optional chaining or a nullish check before using the result
 - Prefer arrow functions for callbacks: `arr.map(x => x * 2)` over `arr.map(function(x) { return x * 2; })`
 - The callback to `filter` can be a **type predicate** (`x is T`) to narrow the type inside the filtered array
+- Exercise 7 is your first encounter with **generics** (`<T>`). The key mental model: `T` is a placeholder for any type, filled in when the function is called. You don't need to know all of generics to complete this exercise — just that `<T>` on a type alias means "parameterised by T", and `<T>` on a function means "TypeScript will infer T from the arguments". Lesson 8 covers generics fully.
 
 ## Exercises Overview
 
