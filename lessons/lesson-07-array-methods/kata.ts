@@ -368,24 +368,42 @@ export { sumOfDoubledEvens, namesOfAdults };
 
 type Predicate<T> = (item: T) => boolean;
 
-// TODO: Create a type alias called 'Transform<T, U>' for: (item: T) => U
-//
+// TODO: Create a type alias called 'Transform<T, U>' for: (iaem: T) => U
+
+type Transform<T, U> = (item: T) => U;
+
 // TODO: Write a function called 'filterWith' that:
 // - Is generic over T
 // - Takes 'arr' of type T[] and 'pred' of type Predicate<T>
 // - Returns T[] (filtered using the predicate)
-//
+
+function filterWith<T>(arr: T[], pred: Predicate<T>): T[] {
+  return arr.filter(pred);
+}
+
 // TODO: Write a function called 'mapWith' that:
 // - Is generic over T and U
 // - Takes 'arr' of type T[] and 'transform' of type Transform<T, U>
 // - Returns U[] (mapped using the transform)
-//
+
+function mapWith<T, U>(arr: T[], transform: Transform<T, U>): U[] {
+  return arr.map(transform);
+}
+
 // TODO: Write a function called 'pipeline' that:
 // - Is generic over T and U
 // - Takes 'arr' of type T[], 'pred' of type Predicate<T>, and
 //   'transform' of type Transform<T, U>
 // - Returns U[] — filters first, then maps
-//
+
+function pipeline<T, U>(
+  arr: T[],
+  pred: Predicate<T>,
+  transform: Transform<T, U>,
+): U[] {
+  return arr.filter(pred).map(transform);
+}
+
 // Example:
 //   filterWith([1, 2, 3, 4], n => n > 2)          → [3, 4]
 //   mapWith([1, 2, 3], n => n.toString())           → ["1", "2", "3"]
@@ -394,7 +412,7 @@ type Predicate<T> = (item: T) => boolean;
 // TODO: Write your code here
 // After completing this exercise, export your types and functions like this:
 // export type { Predicate, Transform };
-// export { filterWith, mapWith, pipeline };
+export { filterWith, mapWith, pipeline };
 
 // =============================================================================
 // Exercise 8: Capstone — Product Catalogue
