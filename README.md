@@ -41,7 +41,7 @@ npm run type-check
 
 **Complete lessons sequentially!** Each lesson builds on concepts from previous lessons:
 
-Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5 → Lesson 6 → Lesson 7
+Lesson 0 → Lesson 1 → Lesson 2 → Lesson 3 → Lesson 4 → Lesson 5 → Lesson 6 → Lesson 7 → Lesson 8
 
 Don't skip ahead - you'll need the fundamentals from earlier lessons.
 
@@ -187,6 +187,24 @@ Don't skip ahead - you'll need the fundamentals from earlier lessons.
 3. Complete the TODOs
 4. Run `npm run test:watch` to see your progress
 
+### Lesson 8: Generics Basics
+**Location:** `lessons/lesson-08-generics-basics/`
+
+**Topics covered:**
+- Generic functions — type parameters inferred from arguments
+- Generic type aliases — `Pair<T>`, `Maybe<T>`
+- Generic interfaces and classes — `Box<T>`, `Stack<T>`
+- Type constraints — `<T extends { length: number }>`, `keyof T`
+- Multiple type parameters — `<T, U>`
+- Generic utility functions — `first`, `last`, `compact`, `chunk`
+- Capstone: `Repository<T>` — a type-safe in-memory store
+
+**To start:**
+1. Read `lessons/lesson-08-generics-basics/README.md`
+2. Open `lessons/lesson-08-generics-basics/kata.ts`
+3. Complete the TODOs
+4. Run `npm run test:watch` to see your progress
+
 ## Learning Tips
 
 1. **Read the error messages** - TypeScript's compiler errors are your friend. They tell you exactly what's wrong.
@@ -227,5 +245,6 @@ After completing a lesson:
 - [ ] Lesson 5: Classes & Access Modifiers
 - [ ] Lesson 6: Enums & Literal Types
 - [ ] Lesson 7: Array Methods with Types
+- [ ] Lesson 8: Generics Basics
 
 Happy learning!
