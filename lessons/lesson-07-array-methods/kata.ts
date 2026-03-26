@@ -425,35 +425,73 @@ export { filterWith, mapWith, pipeline };
 // - category: "electronics" | "clothing" | "food"
 // - price: number
 // - inStock: boolean
-//
+
+interface Product {
+  id: number;
+  name: string;
+  category: "electronics" | "clothing" | "food";
+  price: number;
+  inStock: boolean;
+}
+
 // TODO: Write a function called 'getInStock' that:
 // - Takes 'products' of type Product[]
 // - Returns only products where inStock is true
 // - Has an explicit return type of Product[]
-//
+
+const getInStock = (products: Product[]): Product[] =>
+  products.filter((p) => p.inStock);
+
 // TODO: Write a function called 'getByCategory' that:
 // - Takes 'products' of type Product[] and 'category' of type Product["category"]
 // - Returns only products in that category
 // - Has an explicit return type of Product[]
-//
+
+const getByCategory = (
+  products: Product[],
+  category: Product["category"],
+): Product[] => products.filter((p) => p.category === category);
+
 // TODO: Write a function called 'toDisplayStrings' that:
 // - Takes 'products' of type Product[]
 // - Returns an array of strings in the format: "{name} — ${price}"
 //   e.g. "Laptop — $999"
 // - Has an explicit return type of string[]
-//
+
+const toDisplayStrings = (products: Product[]): string[] =>
+  products.map((p) => `${p.name} — $${p.price}`);
+
 // TODO: Write a function called 'totalPrice' that:
 // - Takes 'products' of type Product[]
 // - Returns the sum of all product prices
 // - Has an explicit return type of number
-//
+
+const totalPrice = (products: Product[]): number =>
+  products.reduce((acc, n) => acc + n.price, 0);
+
 // TODO: Write a function called 'catalogueSummary' that:
 // - Takes 'products' of type Product[]
 // - Returns an object with shape: { total: number; inStock: number; outOfStock: number }
 //   where total is the count of all products, inStock is the count of in-stock
 //   products, and outOfStock is the count of out-of-stock products
 // - Uses reduce with an explicit accumulator type
-//
+
+type catalogueSummaryResult = {
+  total: number;
+  inStock: number;
+  outOfStock: number;
+};
+
+const catalogueSummary = (products: Product[]): catalogueSummaryResult =>
+  products.reduce<catalogueSummaryResult>(
+    (acc, n) => ({
+      total: acc.total + 1,
+      inStock: acc.inStock + (n.inStock ? 1 : 0),
+      outOfStock: acc.outOfStock + (n.inStock ? 0 : 1),
+    }),
+    { total: 0, inStock: 0, outOfStock: 0 },
+  );
+
 // Example (given a sample catalogue):
 //   getInStock(catalogue)           → products where inStock === true
 //   getByCategory(catalogue, "electronics") → electronics products
@@ -463,8 +501,14 @@ export { filterWith, mapWith, pipeline };
 
 // TODO: Write your code here
 // After completing this exercise, export your interface and functions like this:
-// export type { Product };
-// export { getInStock, getByCategory, toDisplayStrings, totalPrice, catalogueSummary };
+export type { Product };
+export {
+  getInStock,
+  getByCategory,
+  toDisplayStrings,
+  totalPrice,
+  catalogueSummary,
+};
 
 // This empty export makes the file a module for TypeScript
 export {};
