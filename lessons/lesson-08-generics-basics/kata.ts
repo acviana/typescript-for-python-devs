@@ -38,6 +38,10 @@
 // - Takes 'value' of type T
 // - Returns value unchanged, with return type T
 
+function identity<T>(value: T): T {
+  return value;
+}
+
 // TODO: Write a function called 'wrap' that:
 // - Is generic over T
 // - Takes 'value' of type T
@@ -49,9 +53,13 @@
 //   wrap(42)             → [42]
 //   wrap("hello")        → ["hello"]
 
+function wrap<T>(value: T): T[] {
+  return [value];
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { identity, wrap };
+export { identity, wrap };
 
 // =============================================================================
 // Exercise 2: Generic type aliases
@@ -74,18 +82,33 @@
 //
 // TODO: Create a type alias called 'Pair<T>' for: { first: T; second: T }
 
+type Pair<T> = {
+  first: T;
+  second: T;
+};
+
 // TODO: Create a type alias called 'Maybe<T>' for: T | null | undefined
+
+type Maybe<T> = T | null | undefined;
 
 // TODO: Write a function called 'makePair' that:
 // - Is generic over T
 // - Takes 'first' and 'second', both of type T
 // - Returns a Pair<T>
 
+function makePair<T>(first: T, second: T): Pair<T> {
+  return { first, second };
+}
+
 // TODO: Write a function called 'getOrDefault' that:
 // - Is generic over T
 // - Takes 'value' of type Maybe<T> and 'defaultValue' of type T
 // - Returns value if it is not null or undefined, otherwise returns defaultValue
-//
+
+function getOrDefault<T>(value: Maybe<T>, defaultValue: T): T {
+  return value ?? defaultValue;
+}
+
 // Example:
 //   makePair(1, 2)                    → { first: 1, second: 2 }
 //   makePair("a", "b")                → { first: "a", second: "b" }
@@ -95,8 +118,8 @@
 
 // TODO: Write your code here
 // After completing this exercise, export your types and functions like this:
-// export type { Pair, Maybe };
-// export { makePair, getOrDefault };
+export type { Pair, Maybe };
+export { makePair, getOrDefault };
 
 // =============================================================================
 // Exercise 3: Generic interfaces & classes
