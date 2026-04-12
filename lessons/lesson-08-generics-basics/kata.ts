@@ -156,9 +156,21 @@ export { makePair, getOrDefault };
 // - A property 'value' of type T
 // - A method 'map<U>' that takes a function (value: T) => U and returns Container<U>
 
+interface Container<T> {
+  value: T;
+  map<U>(fn: (value: T) => U): Container<U>;
+}
+
 // TODO: Define a class called 'Box<T>' that implements Container<T> with:
 // - A constructor that takes 'value' of type T as a public property (shorthand)
 // - A 'map<U>' method that applies fn to value and returns a new Box<U>
+
+class Box<T> implements Container<T> {
+  constructor(public value: T) {}
+  map<U>(fn: (value: T) => U): Box<U> {
+    return new Box(fn(this.value));
+  }
+}
 
 // TODO: Define a class called 'Stack<T>' with:
 // - A private 'items' array of type T[], initialised to []
@@ -167,7 +179,27 @@ export { makePair, getOrDefault };
 // - A 'peek' method that returns the top item without removing it (returns T | undefined)
 // - A 'size' getter that returns the number of items (returns number)
 // - A 'isEmpty' getter that returns true if the stack has no items (returns boolean)
-//
+
+class Stack<T> {
+  constructor(private items: T[] = []) {}
+
+  push(item: T): void {
+    this.items.push(item);
+  }
+  pop(): T | undefined {
+    return this.items.pop();
+  }
+  peek(): T | undefined {
+    return this.items[this.items.length - 1];
+  }
+  get size(): number {
+    return this.items.length;
+  }
+  get isEmpty(): boolean {
+    return this.items.length === 0;
+  }
+}
+
 // Example:
 //   const box = new Box(42);
 //   box.value                        → 42
@@ -184,8 +216,8 @@ export { makePair, getOrDefault };
 
 // TODO: Write your code here
 // After completing this exercise, export your types and classes like this:
-// export type { Container };
-// export { Box, Stack };
+export type { Container };
+export { Box, Stack };
 
 // =============================================================================
 // Exercise 4: Type constraints
