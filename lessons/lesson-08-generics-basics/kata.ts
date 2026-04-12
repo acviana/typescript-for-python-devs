@@ -181,7 +181,7 @@ class Box<T> implements Container<T> {
 // - A 'isEmpty' getter that returns true if the stack has no items (returns boolean)
 
 class Stack<T> {
-  constructor(private items: T[] = []) {}
+  private items: T[] = [];
 
   push(item: T): void {
     this.items.push(item);
