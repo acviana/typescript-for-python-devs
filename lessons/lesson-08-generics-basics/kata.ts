@@ -256,6 +256,14 @@ export { Box, Stack };
 // - Takes 'a' and 'b' of type T
 // - Returns whichever is longer (or 'a' if equal)
 
+function longest<T extends { length: number }>(a: T, b: T): T {
+  if (a.length >= b.length) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
 // TODO: Write a function called 'getProperty' that:
 // - Is generic over T and K, where K extends keyof T
 // - Takes 'obj' of type T and 'key' of type K
@@ -268,9 +276,13 @@ export { Box, Stack };
 //   getProperty({ name: "Alice" }, "name")        → "Alice"
 //   getProperty({ name: "Alice", age: 30 }, "age") → 30
 
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { longest, getProperty };
+export { longest, getProperty };
 
 // =============================================================================
 // Exercise 5: Multiple type parameters
