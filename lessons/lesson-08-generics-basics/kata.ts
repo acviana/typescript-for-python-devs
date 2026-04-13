@@ -311,6 +311,11 @@ export { longest, getProperty };
 // Note: avoid naming the parameter 'as' — it's a reserved word in JS.
 //       Use 'as_' or 'arrA' instead.
 
+function zip<T, U>(first: T[], second: U[]): [T, U][] {
+  const shorter = first.length < second.length ? first : second;
+  return shorter.map((_, i) => [first[i], second[i]] as [T, U]);
+}
+
 // TODO: Write a function called 'mapObject' that:
 // - Is generic over T and U
 // - Takes 'obj' of type Record<string, T> and 'fn' of type (value: T) => U
@@ -322,9 +327,20 @@ export { longest, getProperty };
 //   mapObject({ a: 1, b: 2 }, n => n * 2)  → { a: 2, b: 4 }
 //   mapObject({ x: "hi" }, s => s.length)  → { x: 2 }
 
+function mapObject<T, U>(
+  obj: Record<string, T>,
+  fn: (value: T) => U,
+): Record<string, U> {
+  const result: Record<string, U> = {};
+  for (const key of Object.keys(obj)) {
+    result[key] = fn(obj[key]);
+  }
+  return result;
+}
+
 // TODO: Write your code here
 // After completing this exercise, export your functions like this:
-// export { zip, mapObject };
+export { zip, mapObject };
 
 // =============================================================================
 // Exercise 6: Generic utility functions
