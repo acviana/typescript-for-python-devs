@@ -227,7 +227,25 @@ After completing a lesson:
 - Review your solution
 - Try refactoring to make it more type-safe
 - Explore the TypeScript documentation for deeper understanding
+- **Try a puzzle from the `puzzles/` directory!**
 - Move to the next lesson when ready
+
+## Puzzles
+
+Looking for a challenge? The `puzzles/` directory contains open-ended coding problems that use the concepts you've learned in the lessons. These are less structured than lessons—you get a problem description and tests, then figure out the solution yourself.
+
+**Start here:** `puzzles/README.md`
+
+**Run puzzle tests:**
+```bash
+# Run all puzzle tests once
+npm run test:puzzles
+
+# Run puzzle tests in watch mode
+npm run test:puzzles:watch
+```
+
+Puzzles take about 20-30 minutes each and are great for building confidence with TypeScript!
 
 ## Resources
 

@@ -7,6 +7,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
+    "test:puzzles": "vitest run puzzles/",
+    "test:puzzles:watch": "vitest puzzles/",
     "type-check": "tsc --noEmit"
   },
   "keywords": [],

@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['lessons/**/*.test.ts'],
+    include: ['lessons/**/*.test.ts', 'puzzles/**/*.test.ts'],
     bail: 1, // Stop after 1 test failure
   },
 });
