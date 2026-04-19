@@ -18,7 +18,18 @@
  * @returns true if valid, false otherwise
  */
 export function isValidNumber(input: string): boolean {
-  // TODO: Implement this function
-  // Hint: Check the README for approach hints if you get stuck!
-  return false; // placeholder
+  const digits = new Set(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
+  if (input === "") {
+    return false;
+  }
+  if (input[0] === "0" && input != "0") {
+    return false;
+  }
+  for (const digit of input) {
+    if (!digits.has(digit)) {
+      return false;
+    }
+  }
+  const num = Number(input);
+  return Number.isSafeInteger(num);
 }
