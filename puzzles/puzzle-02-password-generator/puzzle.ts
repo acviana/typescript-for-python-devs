@@ -27,8 +27,50 @@ export interface PasswordOptions {
  * @returns Random password string
  * @throws Error if length is insufficient for the selected options
  */
-export function generatePassword(length: number, options: PasswordOptions): string {
-  // TODO: Implement this function
-  // Hint: Check the README for approach hints if you get stuck!
-  return ''; // placeholder
+
+const StringConstants = {
+  asciiLowercase: "abcdefghijklmnopqrstuvwxyz",
+  asciiUppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  asciiLetters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  digits: "0123456789",
+  hexdigits: "0123456789abcdefABCDEF",
+  punctuation: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+} as const;
+
+function getRandomIntExclusive(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+export function generatePassword(
+  length: number,
+  options: PasswordOptions,
+): string {
+  // Error if length is too short to satisfy selected options
+  const sumOfOptions = Object.values(options).reduce(
+    (acc, value) => acc + (value ? 1 : 0),
+    1,
+  );
+  if (length < sumOfOptions) {
+    throw new Error("password length is too short for number of options");
+  }
+
+  // Build the set of possible characters
+  let charList: string = StringConstants.asciiLowercase;
+  if (options.includeUppercase) {
+    charList += StringConstants.asciiUppercase;
+  }
+  if (options.includeNumbers) {
+    charList += StringConstants.digits;
+  }
+  if (options.includeSymbols) {
+    charList += StringConstants.punctuation;
+  }
+
+  // Build the password
+  let password: string = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex: number = getRandomIntExclusive(0, charList.length);
+    password += charList[randomIndex];
+  }
+  return password;
 }
