@@ -31,14 +31,16 @@ export interface PasswordOptions {
 const StringConstants = {
   asciiLowercase: "abcdefghijklmnopqrstuvwxyz",
   asciiUppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  asciiLetters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   digits: "0123456789",
-  hexdigits: "0123456789abcdefABCDEF",
   punctuation: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
 } as const;
 
 function getRandomIntExclusive(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandomChar(characters: string): string {
+  return characters[getRandomIntExclusive(0, characters.length)];
 }
 
 export function generatePassword(
@@ -55,22 +57,33 @@ export function generatePassword(
   }
 
   // Build the set of possible characters
+  // Ensure each option runs exactly once.
+  let password: string = "";
+  let remainingLength = length;
   let charList: string = StringConstants.asciiLowercase;
+  password += getRandomChar(StringConstants.asciiLowercase);
+  remainingLength -= 1;
   if (options.includeUppercase) {
     charList += StringConstants.asciiUppercase;
+    password += getRandomChar(StringConstants.asciiUppercase);
+    remainingLength -= 1;
   }
   if (options.includeNumbers) {
     charList += StringConstants.digits;
+    password += getRandomChar(StringConstants.digits);
+    remainingLength -= 1;
   }
   if (options.includeSymbols) {
     charList += StringConstants.punctuation;
+    password += getRandomChar(StringConstants.punctuation);
+    remainingLength -= 1;
   }
 
   // Build the password
-  let password: string = "";
-  for (let i = 0; i < length; i++) {
-    const randomIndex: number = getRandomIntExclusive(0, charList.length);
-    password += charList[randomIndex];
+  for (let i = 0; i < remainingLength; i++) {
+    password += getRandomChar(charList);
   }
+  // Randomize the order of the final result
+
   return password;
 }
